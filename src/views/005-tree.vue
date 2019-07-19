@@ -6,6 +6,7 @@
 		show-checkbox 
 		node-key="id" 
 		@current-change="currentChangeHandle"
+		:highlight-current="true"
 		:default-expand-all="true"
 		:props="defaultProps">
 		</el-tree>
@@ -59,6 +60,9 @@
 				}
 			};
 		},
+		mounted(){
+			// this.setCurrentNode();
+		},
 		methods:{
 			currentChangeHandle(data,node){
 				console.log(data);
@@ -67,8 +71,8 @@
 			setCurrentNode(){
 				console.log(1)
 				// this.$refs['myTree'].setCurrentKey(7); //setCurrentKey
-				this.$refs['myTree'].setChecked(4,true,true)
-				console.log(this.$refs['myTree'].getCurrentNode());
+				this.$refs['myTree'].setCurrentKey(3);
+				// this.$refs['myTree'].setChecked(4,true,true)
 			}
 		}
 	};

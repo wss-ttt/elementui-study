@@ -3,14 +3,14 @@
 		<el-tree 
 		ref="myTree"
 		:data="data" 
-		show-checkbox 
-		node-key="id" 
-		@current-change="currentChangeHandle"
+		node-key="ad" 
+		show-checkbox
 		:default-expand-all="true"
+		:highlight-current="true"
 		:props="defaultProps">
 		</el-tree>
-		<hr>
-		<el-button @click="setCurrentNode">选中节点</el-button>
+		<el-button @click="currentNodeCheck">设置高亮</el-button>
+		<el-button @click="getNodeInfo">获取当前节点的信息</el-button>
 	</div>
 </template>
 
@@ -21,14 +21,22 @@
 				data:[
 					{
 						id:1,
+						ad:'a',
 						name:'张三'
 					},
 					{
 						id:2,
+						ad:'b',
 						name:'乔峰'
 					},
 					{
 						id:3,
+						ad:'c',
+						name:'杨过'
+					},
+					{
+						id:4,
+						ad:'d',
 						name:'杨过'
 					},
 				],
@@ -38,13 +46,20 @@
 				}
 			}
 		},
+		mounted(){
+		},
 		methods:{
-			currentChangeHandle(data,node){
-				console.log(data);
-				console.log(node);
+			currentNodeCheck(){
+				// 高亮显示
+				this.$refs['myTree'].setCurrentKey('e');
+				// 选中
+				// this.$refs['myTree'].setChecked('c',true)
 			},
-			setCurrentNode(){
-				console.log(1)
+			getNodeInfo(){
+				var node = this.$refs['myTree'].getCurrentNode();
+				var name = this.$refs['myTree'].getCurrentNode()['name'];
+				console.log(node);
+				console.log(name);
 			}
 		}
 	};

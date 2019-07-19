@@ -70,5 +70,17 @@ export default new Router({
 			path: '/015-tree',
 			component: resolve => require(['@/views/015-tree'], resolve),
 		},
+		{
+			path: '/016-form',
+			component: resolve => require(['@/views/016-form'], resolve),
+		},
+		{
+			path: '/017-form',  // 放入多个表单进行切换
+			component: resolve => require(['@/views/017-form'], resolve),
+		},
+		{
+			path: '/018-dialog',  // 弹出框+表单的使用
+			component: resolve => require(['@/views/018-dialog'], resolve),
+		},
 	]
 })
