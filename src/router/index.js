@@ -82,5 +82,9 @@ export default new Router({
 			path: '/018-dialog',  // 弹出框+表单的使用
 			component: resolve => require(['@/views/018-dialog'], resolve),
 		},
+		{
+			path: '/019-dialog_form',  // 弹出框+表单的使用
+			component: resolve => require(['@/views/019-dialog_form'], resolve),
+		},
 	]
 })
