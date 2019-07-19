@@ -86,5 +86,9 @@ export default new Router({
 			path: '/019-dialog_form',  // 弹出框+表单的使用
 			component: resolve => require(['@/views/019-dialog_form'], resolve),
 		},
+		{
+			path: '/020-resetform',  // 弹出框+表单的使用
+			component: resolve => require(['@/views/020-resetform'], resolve),
+		},
 	]
 })
