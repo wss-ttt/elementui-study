@@ -2,7 +2,7 @@
 	<div class="box">
 		切换:
 		<el-radio-group v-model="type">
-			<el-radio v-for="(item,index) in typeList" :label="index" :index="index">{{item}}</el-radio>
+			<el-radio v-for="(item,index) in typeList" :label="index" :key="index">{{item}}</el-radio>
 		</el-radio-group>
 		<el-form :model="dataForm1" v-if="type===0" ref="dataForm1" :rules="rules">
 			<el-form-item label="姓名" prop="name">

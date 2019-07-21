@@ -2,7 +2,7 @@
 	<div class="box">
 		<el-form :model="dataForm" ref="dataForm">
 			<el-radio-group v-model="dataForm.type" disabled>
-				<el-radio v-for="(item,index) in dataForm.typeList" :label="index" :index="index">{{item}}</el-radio>
+				<el-radio v-for="(item,index) in dataForm.typeList" :label="index" :key="index">{{item}}</el-radio>
 			</el-radio-group>
 			<el-form-item v-if="dataForm.type === 0">
 				<el-input v-model="dataForm.name" placeholder="姓名"></el-input>
