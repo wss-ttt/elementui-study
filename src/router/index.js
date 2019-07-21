@@ -90,5 +90,9 @@ export default new Router({
 			path: '/020-resetform',  // 弹出框+表单的使用
 			component: resolve => require(['@/views/020-resetform'], resolve),
 		},
+		{
+			path: '/021-add',  // 新增
+			component: resolve => require(['@/views/021-add'], resolve),
+		},
 	]
 })

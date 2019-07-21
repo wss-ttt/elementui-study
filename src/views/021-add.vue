@@ -1,16 +1,31 @@
 <template>
 	<div class="box">
-		<el-button>新增</el-button>
+		<el-button @click="add">新增</el-button>
+		<addUI v-if="addUI" ref="addUI"></addUI>
 	</div>
 </template>
 
 <script>
-	export default{
-		name:'',
-		data(){
-			return{
-				
+	import addUI from '@/components/addUI.vue'
+	export default {
+		name: '',
+		data() {
+			return {
+				addUI: false,
 			}
+		},
+		methods: {
+			add() {
+				this.addUI = true;
+				/* this.$nextTick(() => {
+					this.$refs['addUI'].init();
+				}); */
+				this.$refs['addUI'].init();
+
+			}
+		},
+		components: {
+			addUI
 		}
 	}
 </script>
