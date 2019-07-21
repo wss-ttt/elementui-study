@@ -94,5 +94,9 @@ export default new Router({
 			path: '/021-add',  // 新增
 			component: resolve => require(['@/views/021-add'], resolve),
 		},
+		{
+			path: '/022-add2',  // 新增
+			component: resolve => require(['@/views/022-add2'], resolve),
+		},
 	]
 })
