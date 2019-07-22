@@ -98,5 +98,13 @@ export default new Router({
 			path: '/022-add2',  // 新增
 			component: resolve => require(['@/views/022-add2'], resolve),
 		},
+		{
+			path: '/023-radio',  // 新增
+			component: resolve => require(['@/views/023-radio'], resolve),
+		},
+		{
+			path: '/024-crud',  // 新增
+			component: resolve => require(['@/views/024-crud'], resolve),
+		},
 	]
 })
