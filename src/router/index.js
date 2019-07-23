@@ -98,5 +98,9 @@ export default new Router({
 			path: '/022-add2',  // 新增
 			component: resolve => require(['@/views/022-add2'], resolve),
 		},
+		{
+			path: '/023-array',  // 新增
+			component: resolve => require(['@/views/023-array'], resolve),
+		},
 	]
 })
