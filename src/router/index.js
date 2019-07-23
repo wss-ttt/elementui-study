@@ -102,5 +102,13 @@ export default new Router({
 			path: '/023-array',  // 新增
 			component: resolve => require(['@/views/023-array'], resolve),
 		},
+		{
+			path: '/023-radio',  // 新增
+			component: resolve => require(['@/views/023-radio'], resolve),
+		},
+		{
+			path: '/024-crud',  // 新增
+			component: resolve => require(['@/views/024-crud'], resolve),
+		},
 	]
 })
