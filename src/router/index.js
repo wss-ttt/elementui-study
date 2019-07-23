@@ -113,6 +113,14 @@ export default new Router({
 		{
 			path:'/025-scss',
 			component: resolve => require(['@/views/025-scss'], resolve),
-		}
+		},
+		{
+			path:'/026-update_css',
+			component: resolve => require(['@/views/026-update_css'], resolve),
+		},
+		{
+			path:'/027-pickerdate',
+			component: resolve => require(['@/views/027-pickerdate'], resolve),
+		},
 	]
 })
