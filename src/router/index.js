@@ -110,5 +110,9 @@ export default new Router({
 			path: '/024-crud',  // 新增
 			component: resolve => require(['@/views/024-crud'], resolve),
 		},
+		{
+			path:'/025-scss',
+			component: resolve => require(['@/views/025-scss'], resolve),
+		}
 	]
 })
