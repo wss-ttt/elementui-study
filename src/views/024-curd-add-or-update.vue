@@ -14,6 +14,10 @@
 				<el-input placeholder="专业" v-model="dataForm.major"></el-input>
 			</el-form-item>
 		</el-form>
+		<span slot="footer" class="dialog-footer">
+			<el-button @click="visible = false">取 消</el-button>
+			<el-button type="primary" @click="onSubmit">确 定</el-button>
+		</span>
 	</el-dialog>
 </template>
 
@@ -40,6 +44,10 @@
 					// 重置表单
 					this.$refs['dataForm'].resetFields();
 				});
+			},
+			// 提交表单
+			onSubmit(){
+				this.visible = false;
 			}
 		}
 	}
