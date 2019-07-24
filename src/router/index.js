@@ -122,5 +122,9 @@ export default new Router({
 			path:'/027-pickerdate',
 			component: resolve => require(['@/views/027-pickerdate'], resolve),
 		},
+		{
+			path:'/028-ajax',
+			component: resolve => require(['@/views/028-ajax'], resolve),
+		},
 	]
 })
