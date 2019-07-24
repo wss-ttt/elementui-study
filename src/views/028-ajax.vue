@@ -8,6 +8,7 @@
 				<el-button @click="getListByName">查询</el-button>
 				<el-button @click="sendByPost">发送post请求</el-button>
 				<el-button @click="sendByPost2">发送post请求2</el-button>
+				<el-button @click="qs">使用qs进行序列化</el-button>
 				<!-- <el-button type="primary" @click="addOrUpdateHandle()">新增</el-button> -->
 				<!-- <el-button type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button> -->
 			</el-form-item>
@@ -27,6 +28,7 @@
 </template>
 
 <script>
+	import QS from 'qs'
 	export default {
 		name: '',
 		data() {
@@ -139,14 +141,38 @@
 				}); */
 			},
 			sendByPost2() {
-				this.$ajax.post('http://localhost:3000/test', {
+				/* this.$ajax.post('http://localhost:3000/test', {
 					id: 1,
 					name: '乔峰'
 				},{
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 				}).then(res => {
 					console.log(res);
+				}); */
+				
+				this.$ajax({
+					url:'http://localhost:3000/test',
+					method:'post',
+					data:{
+						id:1,
+						name:'关羽',
+						age:18
+					},
+					// 设置请求头信息
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded'
+					}
+				}).then(res=>{
+					console.log(res);
 				});
+			},
+			qs(){
+				var data = {
+					id:1,
+					name:'乔峰'
+				};
+				var res = QS.stringify(data);
+				console.log(res);
 			}
 		}
 	}
