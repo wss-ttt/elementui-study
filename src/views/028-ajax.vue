@@ -141,23 +141,16 @@
 				}); */
 			},
 			sendByPost2() {
-				/* this.$ajax.post('http://localhost:3000/test', {
-					id: 1,
-					name: '乔峰'
-				},{
-					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-				}).then(res => {
-					console.log(res);
-				}); */
-				
+				var data = {
+					id:1,
+					name:'关羽',
+					age:18
+				};
 				this.$ajax({
 					url:'http://localhost:3000/test',
 					method:'post',
-					data:{
-						id:1,
-						name:'关羽',
-						age:18
-					},
+					// data:data,     // 这种写法参数传递不过去
+					data:QS.stringify(data),
 					// 设置请求头信息
 					headers: {
 						'Content-Type': 'application/x-www-form-urlencoded'
@@ -171,8 +164,18 @@
 					id:1,
 					name:'乔峰'
 				};
+				
 				var res = QS.stringify(data);
 				console.log(res);
+				
+				var data2 = 'id=1&name=zhangsan&age=18';
+				
+				var res2 = QS.parse(data2);
+				
+				console.log(res2);
+				console.log('---------------');
+				var res3 = JSON.stringify(data);
+				console.log(typeof res3);
 			}
 		}
 	}
