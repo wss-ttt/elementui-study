@@ -170,5 +170,10 @@ export default new Router({
 			name:'013-router',
 			component: resolve => require(['@/views/031-router'], resolve),
 		},
+		{
+			path:'/032-store',
+			name:'032-store',
+			component: resolve => require(['@/views/032-store'], resolve),
+		},
 	]
 })
