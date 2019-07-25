@@ -130,5 +130,9 @@ export default new Router({
 			path:'/029-checkbox',
 			component: resolve => require(['@/views/029-checkbox'], resolve),
 		},
+		{
+			path:'/030-click',
+			component: resolve => require(['@/views/030-click'], resolve),
+		},
 	]
 })
