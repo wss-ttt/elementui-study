@@ -13,11 +13,11 @@
 				<!-- <el-button type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button> -->
 			</el-form-item>
 		</el-form>
-		<el-table v-loading="tableLoading" :data="dataList">
-			<el-table-column label="编号" prop="id"></el-table-column>
-			<el-table-column label="姓名" prop="name"></el-table-column>
-			<el-table-column label="性别" prop="age"></el-table-column>
-			<el-table-column fixed="right" header-align="center" align="center" width="150" label="操作">
+		<el-table v-loading="tableLoading" :data="dataList" border>
+			<el-table-column label="编号" prop="id" align="center"></el-table-column>
+			<el-table-column label="姓名" prop="name" align="center"></el-table-column>
+			<el-table-column label="性别" prop="age" align="center"></el-table-column>
+			<el-table-column fixed="right" align="center" width="150" label="操作">
 				<template slot-scope="scope">
 					<el-button type="text" size="small" @click="addOrUpdateHandle(scope.row.id)">修改</el-button>
 					<el-button type="text" size="small" @click="deleteHandle(scope.row.id)">删除</el-button>
