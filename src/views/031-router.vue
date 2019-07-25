@@ -14,8 +14,14 @@
 		},
 		methods:{
 			go(){
+				
 				// this.$router.push({path:'/028-ajax'});
-				this.$router.push({name:'028-ajax'});
+				// this.$router.push({name:'028-ajax'});
+				
+				
+				
+				// this.$router.replace({name:'028-ajax'});
+				this.$router.replace({path:'/028-ajax'});
 			}
 		}
 	}
