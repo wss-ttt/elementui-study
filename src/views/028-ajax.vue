@@ -10,7 +10,7 @@
 				<el-button @click="sendByPost2">发送post请求2</el-button>
 				<el-button @click="qs">使用qs进行序列化</el-button>
 				<el-button type="primary" @click="addOrUpdateHandle()">新增</el-button>
-				<el-button type="danger" :disabled="dataListSelections.length <= 0">批量删除</el-button>
+				<el-button type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button>
 			</el-form-item>
 		</el-form>
 		<el-table v-loading="tableLoading" :data="dataList" border @selection-change="handleSelectionChange">
@@ -44,7 +44,7 @@
 				addOrUpdateVisible: false, // 控制弹框的显示和隐藏
 				dataList: [],
 				tableLoading: false, // loading效果
-				dataListSelections:[],   // 都选
+				dataListSelections: [], // 都选
 			}
 		},
 		mounted() {
@@ -83,18 +83,24 @@
 				});
 			},
 			deleteHandle(id) {
+				var ids = id ? [id] : this.dataListSelections.map(item => {
+				  return item.id;
+				});
+				console.log(ids);
 				this.$confirm('确定要删除当前数据吗?', '提示', {
 					confirmButtonText: '确定',
 					cancelButtonText: '取消',
 					type: 'warning'
 				}).then(() => {
-					var data = {
-						id: id
-					};
+					/* var data = {
+						id: ids
+					}; */
 					this.$ajax({
 						url: 'http://localhost:3000/students/delete',
-						method: 'post',
-						data: QS.stringify(data),
+						method: 'get',
+						params: {
+							id:ids
+						},
 						// 设置请求头信息
 						headers: {
 							'Content-Type': 'application/x-www-form-urlencoded'
@@ -188,9 +194,8 @@
 				var res3 = JSON.stringify(data);
 				console.log(typeof res3);
 			},
-			handleSelectionChange(val){
+			handleSelectionChange(val) {
 				this.dataListSelections = val;
-				console.log(this.dataListSelections);
 			}
 		},
 		components: {
