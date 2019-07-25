@@ -9,7 +9,7 @@
 				<el-button @click="sendByPost">发送post请求</el-button>
 				<el-button @click="sendByPost2">发送post请求2</el-button>
 				<el-button @click="qs">使用qs进行序列化</el-button>
-				<!-- <el-button type="primary" @click="addOrUpdateHandle()">新增</el-button> -->
+				<el-button type="primary" @click="addOrUpdateHandle()">新增</el-button>
 				<!-- <el-button type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button> -->
 			</el-form-item>
 		</el-form>
@@ -19,16 +19,18 @@
 			<el-table-column label="性别" prop="age"></el-table-column>
 			<el-table-column fixed="right" header-align="center" align="center" width="150" label="操作">
 				<template slot-scope="scope">
-					<!-- <el-button type="text" size="small" @click="addOrUpdateHandle(scope.row.id)">修改</el-button> -->
+					<el-button type="text" size="small" @click="addOrUpdateHandle(scope.row.id)">修改</el-button>
 					<el-button type="text" size="small" @click="deleteHandle(scope.row.id)">删除</el-button>
 				</template>
 			</el-table-column>
 		</el-table>
+		<addOrUpdate v-if="addOrUpdateVisible" ref="addOrUpdate" @refreshDataList="getDataList"></addOrUpdate>
 	</div>
 </template>
 
 <script>
 	import QS from 'qs'
+	import addOrUpdate from './028-ajax-add-or-update'
 	export default {
 		name: '',
 		data() {
@@ -37,6 +39,7 @@
 				dataForm: {
 					naem: '', // 用户名
 				},
+				addOrUpdateVisible:false,  // 控制弹框的显示和隐藏
 				dataList: [],
 				tableLoading: false, // loading效果
 			}
@@ -54,7 +57,6 @@
 					data
 				}) => {
 					if (data.code === 0) {
-						console.log(data);
 						this.tableLoading = false; // loading效果隐藏
 						this.dataList = data.data;
 					}
@@ -113,6 +115,12 @@
 					});
 				});
 
+			},
+			addOrUpdateHandle(id){
+				this.addOrUpdateVisible = true;  // 显示弹框
+				this.$nextTick(()=>{
+					this.$refs['addOrUpdate'].init(id);
+				});
 			},
 			sendByPost() {
 				this.$ajax({
@@ -177,6 +185,9 @@
 				var res3 = JSON.stringify(data);
 				console.log(typeof res3);
 			}
+		},
+		components:{
+			addOrUpdate
 		}
 	}
 </script>
