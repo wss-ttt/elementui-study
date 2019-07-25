@@ -83,13 +83,13 @@
 					cancelButtonText: '取消',
 					type: 'warning'
 				}).then(() => {
+					var data = {
+						id:id
+					};
 					this.$ajax({
 						url: 'http://localhost:3000/students/delete',
 						method: 'post',
-						data: {
-							id: id,
-							name:'wss'
-						},
+						data: QS.stringify(data),
 						// 设置请求头信息
 						headers: {
 							'Content-Type': 'application/x-www-form-urlencoded'
