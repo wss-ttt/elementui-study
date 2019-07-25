@@ -126,5 +126,9 @@ export default new Router({
 			path:'/028-ajax',
 			component: resolve => require(['@/views/028-ajax'], resolve),
 		},
+		{
+			path:'/029-checkbox',
+			component: resolve => require(['@/views/029-checkbox'], resolve),
+		},
 	]
 })

@@ -10,10 +10,12 @@
 				<el-button @click="sendByPost2">发送post请求2</el-button>
 				<el-button @click="qs">使用qs进行序列化</el-button>
 				<el-button type="primary" @click="addOrUpdateHandle()">新增</el-button>
-				<!-- <el-button type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button> -->
+				<el-button type="danger" :disabled="dataListSelections.length <= 0">批量删除</el-button>
 			</el-form-item>
 		</el-form>
-		<el-table v-loading="tableLoading" :data="dataList" border>
+		<el-table v-loading="tableLoading" :data="dataList" border @selection-change="handleSelectionChange">
+			<el-table-column type="selection" align="center" width="50">
+			</el-table-column>
 			<el-table-column label="编号" prop="id" align="center"></el-table-column>
 			<el-table-column label="姓名" prop="name" align="center"></el-table-column>
 			<el-table-column label="性别" prop="age" align="center"></el-table-column>
@@ -39,9 +41,10 @@
 				dataForm: {
 					naem: '', // 用户名
 				},
-				addOrUpdateVisible:false,  // 控制弹框的显示和隐藏
+				addOrUpdateVisible: false, // 控制弹框的显示和隐藏
 				dataList: [],
 				tableLoading: false, // loading效果
+				dataListSelections:[],   // 都选
 			}
 		},
 		mounted() {
@@ -86,7 +89,7 @@
 					type: 'warning'
 				}).then(() => {
 					var data = {
-						id:id
+						id: id
 					};
 					this.$ajax({
 						url: 'http://localhost:3000/students/delete',
@@ -109,16 +112,16 @@
 									this.getDataList();
 								}
 							})
-						}else{
+						} else {
 							this.$message.error(data.message)
 						}
 					});
 				});
 
 			},
-			addOrUpdateHandle(id){
-				this.addOrUpdateVisible = true;  // 显示弹框
-				this.$nextTick(()=>{
+			addOrUpdateHandle(id) {
+				this.addOrUpdateVisible = true; // 显示弹框
+				this.$nextTick(() => {
 					this.$refs['addOrUpdate'].init(id);
 				});
 			},
@@ -150,43 +153,47 @@
 			},
 			sendByPost2() {
 				var data = {
-					id:1,
-					name:'关羽',
-					age:18
+					id: 1,
+					name: '关羽',
+					age: 18
 				};
 				this.$ajax({
-					url:'http://localhost:3000/test',
-					method:'post',
+					url: 'http://localhost:3000/test',
+					method: 'post',
 					// data:data,     // 这种写法参数传递不过去
-					data:QS.stringify(data),
+					data: QS.stringify(data),
 					// 设置请求头信息
 					headers: {
 						'Content-Type': 'application/x-www-form-urlencoded'
 					}
-				}).then(res=>{
+				}).then(res => {
 					console.log(res);
 				});
 			},
-			qs(){
+			qs() {
 				var data = {
-					id:1,
-					name:'乔峰'
+					id: 1,
+					name: '乔峰'
 				};
-				
+
 				var res = QS.stringify(data);
 				console.log(res);
-				
+
 				var data2 = 'id=1&name=zhangsan&age=18';
-				
+
 				var res2 = QS.parse(data2);
-				
+
 				console.log(res2);
 				console.log('---------------');
 				var res3 = JSON.stringify(data);
 				console.log(typeof res3);
+			},
+			handleSelectionChange(val){
+				this.dataListSelections = val;
+				console.log(this.dataListSelections);
 			}
 		},
-		components:{
+		components: {
 			addOrUpdate
 		}
 	}
