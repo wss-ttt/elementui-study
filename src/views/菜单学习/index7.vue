@@ -17,22 +17,24 @@
 								<span>{{item.title}}</span>
 							</template>
 							<template v-for="(subItem,subIndex) in item.subs">
-								<!--有子项-->
-								<el-submenu v-if="subItem.subs" :index="subItem.index" :key="subItem.index">
-									<template slot="title">
-										<i :class="subItem.icon"></i>
-										{{subItem.title}}
-									</template>
-									<el-menu-item v-for="(threeItem,threeIndex) in subItem.subs" :index="threeItem.index" :key="threeItem.index">
-										<i :class="threeItem.icon"></i>
-										{{threeItem.title}}
-									</el-menu-item>
-								</el-submenu>
-								<!--没有子项-->
-								<el-menu-item v-else :index="subItem.index" :key="subItem.index">
+								<template v-if="subItem.subs">
+									<el-submenu :index="subItem.index" :key="subItem.index">
+										<template slot="title">
+											<i :class="subItem.icon"></i>
+											{{subItem.title}}
+										</template>
+										<el-menu-item v-for="(threeItem,threeIndex) in subItem.subs" :index="threeItem.index" :key="threeItem.index">
+											<i :class="threeItem.icon"></i>
+											{{threeItem.title}}
+										</el-menu-item>
+									</el-submenu>
+								</template>
+								<template v-else>
+									<el-menu-item :index="subItem.index" :key="subItem.index">
 									<i :class="subItem.icon"></i>
 									{{subItem.title}}
 								</el-menu-item>
+								</template>
 							</template>
 						</el-submenu>
 					</template>
