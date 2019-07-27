@@ -7,10 +7,10 @@
 			active-text-color="#ffd04b" 
 			default-active="1-1">
 				<el-submenu index="1">
-					<!-- <template slot="title">
+					<template slot="title">
 						<i class="el-icon-menu"></i>
 						<span>首页</span>
-					</template> -->
+					</template>
 					<el-menu-item index="1-1" @click="$router.push({ name: 'main' })">
 						<i class="el-icon-menu"></i>
 						首页一

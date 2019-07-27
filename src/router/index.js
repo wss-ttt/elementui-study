@@ -194,6 +194,21 @@ export default new Router({
 			path:'/menu3',    // 学习导航菜单的使用
 			name:'menu3',
 			component: resolve => require(['@/views/菜单学习/index3'], resolve),
+		},
+		{
+			path:'/menu4',    // 循环菜单数据
+			name:'menu4',
+			component: resolve => require(['@/views/菜单学习/index4'], resolve),
+		},
+		{
+			path:'/menu5',    // 循环菜单数据 带有子项 只有两级
+			name:'menu5',
+			component: resolve => require(['@/views/菜单学习/index5'], resolve),
+		},
+		{
+			path:'/menu6',    // 循环菜单数据 带有子项 只有三级
+			name:'menu6',
+			component: resolve => require(['@/views/菜单学习/index6'], resolve),
 		}
 	]
 })
