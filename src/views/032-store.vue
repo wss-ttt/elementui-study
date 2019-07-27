@@ -1,6 +1,8 @@
 <template>
 	<div class="box">
 		姓名：{{name}}
+		<hr>
+		<div class="test"></div>
 	</div>
 </template>
 
@@ -18,5 +20,5 @@
 	}
 </script>
 
-<style>
+<style scoped="scoped" lang="scss">
 </style>

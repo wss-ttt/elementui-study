@@ -62,13 +62,7 @@ exports.cssLoaders = function(options) {
 		sass: generateLoaders('sass', {
 			indentedSyntax: true
 		}),
-		scss: generateLoaders('sass').concat({
-			loader: 'sass-resources-loader',
-			options: {
-				//你自己的scss全局文件的路径
-				resources: path.resolve(__dirname, '../src/assets/scss/base.scss')
-			}
-		}),
+		scss: generateLoaders('sass'),
 		stylus: generateLoaders('stylus'),
 		styl: generateLoaders('stylus')
 	}

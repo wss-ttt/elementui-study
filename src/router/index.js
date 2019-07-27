@@ -175,5 +175,10 @@ export default new Router({
 			name:'032-store',
 			component: resolve => require(['@/views/032-store'], resolve),
 		},
+		{
+			path:'/main',
+			name:'main',
+			component: resolve => require(['@/views/layout/main'], resolve),
+		}
 	]
 })

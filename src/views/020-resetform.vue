@@ -2,18 +2,19 @@
 	<div class="box">
 		<el-form :model="dataForm" :rules="rules" ref="myForm">
 			<el-form-item label="类型" prop="type">
-				<el-radio-group v-model="dataForm.type">
+				<el-radio-group v-model="dataForm.type" @change="changeType">
 					<el-radio label="一"></el-radio>
 					<el-radio label="二"></el-radio>
 				</el-radio-group>
 			</el-form-item>
-			<el-form-item label="城市" prop="city" v-show="dataForm.type === '一'">
+			<el-form-item label="城市" prop="city" v-if="dataForm.type === '一'">
 				<el-input v-model="dataForm.city" placeholder="城市"></el-input>
 			</el-form-item>
-			<el-form-item label="姓名" prop="name" v-show="dataForm.type === '二'">
+			<el-form-item label="姓名" prop="name" v-if="dataForm.type === '二'">
 				<el-input v-model="dataForm.name" placeholder="姓名"></el-input>
 			</el-form-item>
 			<el-form-item>
+				<el-button @click="onSubmit">提交</el-button>
 				<el-button @click="resetForm('myForm')">重置</el-button>
 			</el-form-item>
 		</el-form>
@@ -44,9 +45,25 @@
 			}
 		},
 		methods:{
+			onSubmit(){
+				this.$refs['myForm'].validate((valid)=>{
+					if(valid){
+						console.log('提交成功了');
+						// 重置表单数据
+						this.$refs['myForm'].resetFields();
+					}else{
+						return false;
+					}
+				});
+			},
 			resetForm(formName){
 				// 重置表单数据
 				this.$refs[formName].resetFields();
+			},
+			changeType(type){
+				console.log(type);
+				this.$refs['myForm'].resetFields();
+				this.dataForm.type = type;
 			}
 		}
 	}
