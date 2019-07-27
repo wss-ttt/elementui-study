@@ -1,7 +1,7 @@
 <template>
 	<div class="box">
 		<el-card :body-style="{padding:'0'}">
-			<img src="../assets/1.jpg" />
+			<img src="../../assets/1.jpg" />
 			<div class="info">
 				<div class="header">
 					好好学习
