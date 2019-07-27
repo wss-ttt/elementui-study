@@ -1,13 +1,20 @@
 <template>
 	<div class="wrapper">
 		<div class="sidebar">
-			<el-menu background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" default-active="1-1">
+			<el-menu 
+			background-color="#545c64" 
+			text-color="#fff" 
+			active-text-color="#ffd04b" 
+			default-active="1-1">
 				<el-submenu index="1">
-					<template slot="title">
+					<!-- <template slot="title">
 						<i class="el-icon-menu"></i>
 						<span>首页</span>
-					</template>
-					<el-menu-item index="1-1"><i class="el-icon-menu"></i>首页一</el-menu-item>
+					</template> -->
+					<el-menu-item index="1-1" @click="$router.push({ name: 'main' })">
+						<i class="el-icon-menu"></i>
+						首页一
+					</el-menu-item>
 					<el-menu-item index="1-2"><i class="el-icon-menu"></i>首页二</el-menu-item>
 					<el-menu-item index="1-3"><i class="el-icon-menu"></i>首页三</el-menu-item>
 				</el-submenu>

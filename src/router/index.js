@@ -179,6 +179,21 @@ export default new Router({
 			path:'/main',
 			name:'main',
 			component: resolve => require(['@/views/layout/main'], resolve),
+		},
+		{
+			path:'/menu',    // 学习导航菜单的使用
+			name:'menu',
+			component: resolve => require(['@/views/菜单学习/index'], resolve),
+		},
+		{
+			path:'/menu2',    // 学习导航菜单的使用
+			name:'menu2',
+			component: resolve => require(['@/views/菜单学习/index2'], resolve),
+		},
+		{
+			path:'/menu3',    // 学习导航菜单的使用
+			name:'menu3',
+			component: resolve => require(['@/views/菜单学习/index3'], resolve),
 		}
 	]
 })
