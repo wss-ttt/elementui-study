@@ -225,5 +225,15 @@ export default new Router({
 			name:'menu9',
 			component: resolve => require(['@/views/菜单学习/index9'], resolve),
 		},
+		{
+			path:'/menu10',    // 递归显示菜单数据的加载
+			name:'menu10',
+			component: resolve => require(['@/views/菜单学习/index10'], resolve),
+		},
+		{
+			path:'/menu11',    // 递归显示菜单数据的加载
+			name:'menu11',
+			component: resolve => require(['@/views/菜单学习/index11'], resolve),
+		},
 	]
 })
