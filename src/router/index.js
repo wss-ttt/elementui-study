@@ -214,6 +214,11 @@ export default new Router({
 			path:'/menu7',    // 循环菜单数据 带有子项 只有三级
 			name:'menu7',
 			component: resolve => require(['@/views/菜单学习/index7'], resolve),
+		},
+		{
+			path:'/menu8',    // 循环菜单数据 带有子项 只有三级
+			name:'menu8',
+			component: resolve => require(['@/views/菜单学习/index8'], resolve),
 		}
 	]
 })
