@@ -1,0 +1,75 @@
+[{
+    "menuId": 1,
+    "menuName": "系统管理",
+    "parentId": 0,
+    "route": null,
+    "type": 0,
+    "icon": "el-icon-setting",
+    "orderNum": 0,
+    "children": [{
+            "menuId": 2,
+            "menuName": "微信用户",
+            "parentId": 1,
+            "parentName": "系统管理",
+            "route": "/miniUser",
+            "type": 1,
+            "icon": "el-icon-service",
+            "orderNum": 1,
+            "children": []
+        },
+        {
+            "menuId": 3,
+            "menuName": "菜单管理",
+            "parentId": 1,
+            "parentName": "系统管理",
+            "route": "/menu",
+            "type": 1,
+            "icon": "el-icon-news",
+            "orderNum": 2,
+            "children": []
+        }
+    ]
+},
+{
+    "menuId": 4,
+    "menuName": "密码管理",
+    "parentId": 0,
+    "route": null,
+    "type": 0,
+    "icon": "el-icon-news",
+    "orderNum": 2,
+    "children": [
+        {
+            "menuId": 5,
+            "menuName": "个人管理",
+            "parentId": 4,
+            "parentName": "密码管理",
+            "route": null,
+            "type": 1,
+            "icon": "el-icon-news",
+            "orderNum": 1,
+            "children": [
+                {
+                    "menuId": 6,
+                    "menuName": "钱包管理",
+                    "parentId": 5,
+                    "parentName": "个人管理",
+                    "route": "/menu",
+                    "type": 2,
+                    "icon": "el-icon-news",
+                    "orderNum": 1,
+                    "children": []
+                }]
+        },
+        {
+            "menuId": 7,
+            "menuName": "交易查询",
+            "parentId": 5,
+            "parentName": "密码管理",
+            "route": "/test",
+            "type": 1,
+            "icon": "el-icon-news",
+            "orderNum": 1,
+            "children": []
+        }]
+}]
