@@ -1,36 +1,32 @@
 <template>
 	<div class="wrapper">
 		<div class="sidebar">
-			<el-menu 
-			background-color="#545c64" 
-			text-color="#fff" 
-			active-text-color="#ffd04b" 
-			default-active="home-1">
+			<el-menu background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" default-active="home" :collapse="isCollapse">
+				<el-menu-item>
+					<!--展开-->
+					<i class="el-icon-s-unfold" v-if="isCollapse" @click="isCollapse=false"></i>
+					<!--折叠-->
+					<i class="el-icon-s-fold" v-else @click="isCollapse=true"></i>
+				</el-menu-item>
 				<template v-for="(item,index) in items">
 					<!-- 有子项的 -->
 					<template v-if="item.subs">
-						<el-submenu 
-						:index="item.index" 
-						:key="item.index">
+						<el-submenu :index="item.index" :key="item.index">
 							<template slot="title">
 								<i :class="item.icon"></i>
 								<span>{{item.title}}</span>
 							</template>
-							<el-menu-item v-for="(subItem,subIndex) in item.subs" 
-							:index="subItem.index" 
-							:key="subItem.index">
-								<i :class="subItem.icon"></i>
-								{{subItem.title}}
+							<el-menu-item v-for="(subItem,subIndex) in item.subs" :index="subItem.index" :key="subItem.index">
+								<i :class="subItem.icon"></i> 
+								<span>{{subItem.title}}</span>
 							</el-menu-item>
 						</el-submenu>
 					</template>
 					<!-- 没有子项的 -->
 					<template v-else>
-						<el-menu-item 
-						:index="item.index" 
-						:key="item.index">
-							<i :class="item.icon"></i>
-							{{item.title}}
+						<el-menu-item :index="item.index" :key="item.index">
+							<i :class="item.icon"></i> 
+							<span>{{item.title}}</span>
 						</el-menu-item>
 					</template>
 				</template>
@@ -43,6 +39,7 @@
 		name: '',
 		data() {
 			return {
+				isCollapse: true, // 是否折叠菜单
 				items: [{
 						icon: 'el-icon-menu',
 						index: 'home',
