@@ -214,6 +214,11 @@ export default new Router({
 			name:'header_sidebar',
 			component: resolve => require(['@/views/layout/header_sidebar'], resolve),
 		},
+		{
+			path:'/header_sidebar_content',    // header组件需要控制siderbar组件
+			name:'header_sidebar_content',
+			component: resolve => require(['@/views/layout/header_sidebar_content'], resolve),
+		},
 		// 全屏插件的使用
 		{
 			path:'/fullscreen',
