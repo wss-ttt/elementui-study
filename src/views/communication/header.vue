@@ -1,6 +1,6 @@
 <template>
 	<header>
-		<el-button>发送数据</el-button>
+		<el-button @click="send">发送数据</el-button>
 	</header>
 </template>
 
@@ -15,6 +15,7 @@
 		},
 		methods:{
 			send(){
+				console.log('我要开始发送数据了。。。');
 				bus.$emit('msg','好好学习');
 			}
 		}

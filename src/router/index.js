@@ -27,6 +27,12 @@ export default new Router({
 			name:'photo',
 			component: resolve => require(['@/views/page/photo.vue'], resolve),
 		},
+		// communication 组件之间的通信(非父子组件之间的通信)
+		{
+			path:'/communication',
+			name:'communication',
+			component: resolve => require(['@/views/communication/main.vue'], resolve),
+		},
 		// element-ui组件学习
 		{
 			path: '/001-form',
