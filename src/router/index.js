@@ -176,10 +176,28 @@ export default new Router({
 			component: resolve => require(['@/views/test/032-store'], resolve),
 		},
 		{
+			path:'/033-dropdown',
+			name:'033-dropdown',
+			component: resolve => require(['@/views/test/033-dropdown'], resolve),
+		},
+		// 布局的学习
+		{
 			path:'/main',
 			name:'main',
 			component: resolve => require(['@/views/layout/main'], resolve),
 		},
+		{
+			path:'/header2',
+			name:'header2',
+			component: resolve => require(['@/views/layout/header2'], resolve),
+		},
+		// 全屏插件的使用
+		{
+			path:'/fullscreen',
+			name:'fullscreen',
+			component: resolve => require(['@/views/fullscreen_use/index'], resolve),
+		},
+		// 菜单的学习
 		{
 			path:'/menu',    // 学习导航菜单的使用
 			name:'menu',
