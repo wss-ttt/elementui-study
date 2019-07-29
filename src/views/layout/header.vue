@@ -1,7 +1,7 @@
 <template>
 	<div class="header">
 		<!-- 折叠按钮 -->
-		<div class="collapse-btn" @click="collapseChage">
+		<div class="collapse-btn" @click="sidebarFold = !sidebarFold">
 		    <i class="el-icon-menu"></i>
 		</div>
 		<!-- logo -->
@@ -18,9 +18,16 @@
 			}
 		},
 		methods:{
-			// 侧边栏菜单折叠和展开
-			collapseChage(){
-				
+		},
+		computed:{
+			sidebarFold:{
+				get(){
+					return this.$store.state.common.sidebarFold;
+				},
+				set(val){
+					console.log('我执行了没');
+					this.$store.commit('common/updateSidebarFold',val);
+				}
 			}
 		}
 	}
