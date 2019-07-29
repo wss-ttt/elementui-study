@@ -14,13 +14,18 @@
 			}
 		},
 		created(){
-			console.log('我是啥时候执行了');
-			bus.$on('msg',data=>{
-				console.log('我到这了吗');
-				console.log(data);
+			// 第一种写法
+			var that = this;
+			bus.$on('msg',function(data){
+				// 获取数据
+				that.msg = data;
+			});
+			
+			// 第二种写法  使用箭头函数
+			/*bus.$on('msg',data=>{
 				// 获取数据
 				this.msg = data;
-			});
+			});*/
 		}
 	}
 </script>
