@@ -7,7 +7,7 @@
 				text-color="#fff" 
 				active-text-color="#ffd04b" 
 				default-active="2" 
-				:collapse="sidebarFold" router>
+				:collapse="sidebarFold">
 				
 				<!--展开和折叠-->
 				<!--<el-menu-item>
