@@ -210,8 +210,8 @@ export default new Router({
 			component: resolve => require(['@/views/layout/header2'], resolve),
 		},
 		{
-			path:'/header_siderbar',    // header组件需要控制siderbar组件
-			name:'header_siderbar',
+			path:'/header_sidebar',    // header组件需要控制siderbar组件
+			name:'header_sidebar',
 			component: resolve => require(['@/views/layout/header_sidebar'], resolve),
 		},
 		// 全屏插件的使用
