@@ -258,5 +258,10 @@ export default new Router({
 			name:'menu11',
 			component: resolve => require(['@/views/菜单学习/index11'], resolve),
 		},
+		{
+			path:'/menu12',    // 菜单加路由跳转
+			name:'menu12',
+			component: resolve => require(['@/views/菜单学习/index12'], resolve),
+		},
 	]
 })
