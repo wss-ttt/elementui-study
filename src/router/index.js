@@ -5,11 +5,29 @@ import HelloWorld from '@/components/HelloWorld'
 Vue.use(Router)
 
 export default new Router({
-	routes: [{
+	routes: [
+		{
 			path: '/',
 			name: 'HelloWorld',
 			component: HelloWorld
 		},
+		// 公共测试页面
+		{
+			path:'/blog',
+			name:'blog',
+			component: resolve => require(['@/views/page/blog.vue'], resolve),
+		},
+		{
+			path:'/news',
+			name:'news',
+			component: resolve => require(['@/views/page/news.vue'], resolve),
+		},
+		{
+			path:'/photo',
+			name:'photo',
+			component: resolve => require(['@/views/page/photo.vue'], resolve),
+		},
+		// element-ui组件学习
 		{
 			path: '/001-form',
 			name:'001-form',
