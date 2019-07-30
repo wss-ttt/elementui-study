@@ -1,13 +1,27 @@
-*{
+* {
 	margin: 0;
 	padding: 0;
 }
-a{
+
+a {
 	text-decoration: none;
 }
-ul,li{
+
+ul,
+li {
 	list-style: none;
 }
-html,body{
+
+html,
+body {
 	height: 100%;
+}
+
+.el-tabs__item.is-active {
+	color: red;
+}
+.el-button{
+	color:red;
+	font-size:16px;
+	/*background-color: #42B983;*/
 }

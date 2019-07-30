@@ -1,7 +1,9 @@
 <template>
 	<div class="wrapper">
 		<el-button @click="addTab">add tab</el-button>
-		<el-tabs v-model="activeTab" closable type="" @tab-remove="removeTab">
+		<el-tabs v-model="activeTab" closable type="" 
+			@tab-remove="removeTab" 
+			@tab-click="selectedTabHandle">
 			<el-tab-pane v-for="(item,index) in tabsList" 
 				:key="item.name" 
 				:label="item.title" 
@@ -12,6 +14,9 @@
 		<hr />
 		<div class="show">
 			当前显示的是{{activeTab}}面板
+			<el-button>确定</el-button>
+			<el-button type="primary">确定</el-button>
+			<el-button type="success">确定</el-button>
 		</div>
 	</div>
 </template>
@@ -75,6 +80,10 @@
 				// 删除tab标签页
 				this.tabsList = tabs.filter(tab=>tab.name!==targetName);
 				console.log(this.tabsList);
+			},
+			selectedTabHandle(tab,event){
+				console.log(tab);
+				console.log(event);
 			}
 		}
 		
