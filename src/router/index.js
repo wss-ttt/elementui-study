@@ -204,6 +204,11 @@ export default new Router({
 			name:'033-dropdown',
 			component: resolve => require(['@/views/test/033-dropdown'], resolve),
 		},
+		{
+			path:'/034-$router',
+			name:'034-$router',
+			component: resolve => require(['@/views/test/034-$router'], resolve),
+		},
 		// 布局的学习
 		{
 			path:'/main',
