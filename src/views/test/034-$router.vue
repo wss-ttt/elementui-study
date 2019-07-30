@@ -1,6 +1,7 @@
 <template>
 	<div class="wrapper">
-		测试$router对象
+		{{msg.name}}
+		<a :href="$route.path">跳转</a>
 	</div>
 </template>
 
@@ -9,13 +10,15 @@
 		name:'',
 		data(){
 			return{
-				
+				msg:this.$route
 			}
 		},
 		mounted(){
-			console.log(this.$router);
+			/*console.log(this.$router);
 			console.log(this.$router.options);
-			console.log(this.$router.options.routes);
+			console.log(this.$router.options.routes);*/
+			
+			console.log(this.$route);
 		}
 	}
 </script>

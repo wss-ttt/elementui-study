@@ -26,7 +26,8 @@
 				</div>
 				<!--用户图像-->
 				<div class="user-avator">
-					<img src="../../assets/img/img.jpg">
+					<!--<img src="../../assets/img/img.jpg">-->
+					<img src="~@/assets/img/img.jpg">
 				</div>
 				<!--个人中心-->
 				<div class="user-name">
