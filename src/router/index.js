@@ -214,6 +214,16 @@ export default new Router({
 			name:'035-tabs',
 			component: resolve => require(['@/views/test/035-tabs'], resolve),
 		},
+		{
+			path:'/036-FormData',
+			name:'036-FormData',
+			component: resolve => require(['@/views/test/036-FormData'], resolve),
+		},
+		{
+			path:'/037-xsl',
+			name:'037-xsl',
+			component: resolve => require(['@/views/test/037-xsl'], resolve),
+		},
 		// 布局的学习
 		{
 			path:'/main',
