@@ -54,7 +54,7 @@
 			getDataList() {
 				this.tableLoading = true;
 				this.$ajax({
-					url: 'http://localhost:3000/students/list',
+					url: 'http://localhost:4000/students/list',
 					method: 'get',
 				}).then(({
 					data
@@ -68,7 +68,7 @@
 			getListByName() {
 				this.tableLoading = true;
 				this.$ajax({
-					url: 'http://localhost:3000/students/getListByName',
+					url: 'http://localhost:4000/students/getListByName',
 					method: 'get',
 					params: {
 						name: this.dataForm.name
@@ -96,7 +96,7 @@
 						id: ids
 					}; */
 					this.$ajax({
-						url: 'http://localhost:3000/students/delete',
+						url: 'http://localhost:4000/students/delete',
 						method: 'get',
 						params: {
 							id:ids
@@ -133,7 +133,7 @@
 			},
 			sendByPost() {
 				this.$ajax({
-					url: 'http://localhost:3000',
+					url: 'http://localhost:4000',
 					method: 'post',
 					data: {
 						id: 1,
@@ -148,7 +148,7 @@
 				});
 
 				// 发送post请求
-				/* this.$ajax.post('http://localhost:3000',{
+				/* this.$ajax.post('http://localhost:4000',{
 					id:1,
 					name:'乔峰'
 				},{
@@ -164,7 +164,7 @@
 					age: 18
 				};
 				this.$ajax({
-					url: 'http://localhost:3000/test',
+					url: 'http://localhost:4000/test',
 					method: 'post',
 					// data:data,     // 这种写法参数传递不过去
 					data: QS.stringify(data),
