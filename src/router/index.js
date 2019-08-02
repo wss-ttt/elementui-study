@@ -224,6 +224,11 @@ export default new Router({
 			name:'037-xsl',
 			component: resolve => require(['@/views/test/037-xsl'], resolve),
 		},
+		{
+			path:'/038-promise',
+			name:'038-promise',
+			component: resolve => require(['@/views/test/038-promise'], resolve),
+		},
 		// 布局的学习
 		{
 			path:'/main',
