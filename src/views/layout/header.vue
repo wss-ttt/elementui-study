@@ -6,6 +6,7 @@
 		</div>
 		<!-- logo -->
 		<div class="logo">后台管理系统</div>
+		<el-button @click="goto">跳转路由</el-button>
 	</div>
 </template>
 
@@ -18,6 +19,11 @@
 			}
 		},
 		methods:{
+			goto(){
+				this.$router.push({
+					name:'test'
+				});
+			}
 		},
 		computed:{
 			sidebarFold:{

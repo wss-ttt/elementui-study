@@ -234,6 +234,13 @@ export default new Router({
 			path:'/main',
 			name:'main',
 			component: resolve => require(['@/views/layout/main'], resolve),
+			children:[
+				{
+					path:'test',
+					name:'test',
+					component: resolve => require(['@/views/layout/components/test'], resolve),
+				}
+			]
 		},
 		{
 			path:'/header2',

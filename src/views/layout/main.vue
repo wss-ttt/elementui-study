@@ -3,7 +3,9 @@
 		<v-header></v-header>
 		<v-sidebar></v-sidebar>
 		<div class="content">
-			<div class="main-content"></div>
+			<div class="main-content">
+				<router-view></router-view>
+			</div>
 		</div>
 	</div>
 </template>
@@ -21,6 +23,15 @@
 		components:{
 			vHeader,
 			vSidebar
+		},
+		watch:{
+			$route:'routeHandle'
+		},
+		methods:{
+			routeHandle(route){
+				console.log('监听路由的变化');
+				console.log(route);
+			}
 		}
 	}
 </script>
