@@ -229,6 +229,11 @@ export default new Router({
 			name:'038-promise',
 			component: resolve => require(['@/views/test/038-promise'], resolve),
 		},
+		{
+			path:'/039-table',
+			name:'039-table',
+			component: resolve => require(['@/views/test/039-table'], resolve),
+		},
 		// 布局的学习
 		{
 			path:'/main',
