@@ -357,6 +357,11 @@ export default new Router({
 			path:'/echartMain',
 			name:'echartMain',
 			component: resolve => require(['@/views/eCharts/echartsMain.vue'], resolve),
+		},
+		{
+			path:'/echartMain2',
+			name:'echartMain2',
+			component: resolve => require(['@/views/eCharts/echartsMain2.vue'], resolve),
 		}
 	]
 })
