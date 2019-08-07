@@ -3,7 +3,7 @@
 		<el-button @click="getData">获取数据(get)</el-button>
 		<el-button @click="getData2">获取数据(post)</el-button>
 		<el-button @click="getData3">获取数据2</el-button>
-		<el-table :data="dataTable">
+		<el-table :data="dataTable" @row-click="handleRowClick">
 			<el-table-column prop="id" label="编号"></el-table-column>
 			<el-table-column prop="name" label="姓名"></el-table-column>
 			<el-table-column prop="sex" label="性别"></el-table-column>
@@ -23,8 +23,13 @@
 			}
 		},
 		mounted(){
+			this.getData();
 		},
 		methods:{
+			handleRowClick(row, column, event){
+				console.log(row);
+				console.log(column);
+			},
 			getData(){
 				request({
 					url:'/user/list',
@@ -33,14 +38,14 @@
 						id:1,
 						name:'乔峰'
 					}
-				}).then((data)=>{
-					console.log('getData');
-					console.log(data);
+				}).then(({data})=>{
+					// console.log(data);
+					this.dataTable = data;
 				})
 			},
 			getData2(){
 				request({
-					url:'/user/list21',
+					url:'/user/list2',
 					method:'post',
 					data:{
 						id:2,

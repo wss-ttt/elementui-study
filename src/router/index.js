@@ -234,6 +234,11 @@ export default new Router({
 			name:'039-table',
 			component: resolve => require(['@/views/test/039-table'], resolve),
 		},
+		{
+			path:'/040-select',
+			name:'040-select',
+			component: resolve => require(['@/views/test/040-select'], resolve),
+		},
 		// 布局的学习
 		{
 			path:'/main',
@@ -329,5 +334,11 @@ export default new Router({
 			name:'menu12',
 			component: resolve => require(['@/views/菜单学习/index12'], resolve),
 		},
+		// show文件夹
+		{
+			path:'/page',
+			name:'page',
+			component: resolve => require(['@/views/show/page.vue'], resolve),
+		}
 	]
 })
