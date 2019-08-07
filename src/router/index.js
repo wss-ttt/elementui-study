@@ -339,6 +339,18 @@ export default new Router({
 			path:'/page',
 			name:'page',
 			component: resolve => require(['@/views/show/page.vue'], resolve),
-		}
+		},
+		
+		// login文件夹
+		{
+			path:'/login',
+			name:'login',
+			component: resolve => require(['@/views/login/login.vue'], resolve),
+		},
+		{
+			path:'/dashboard',
+			name:'dashboard',
+			component: resolve => require(['@/views/login/dashboard.vue'], resolve),
+		},
 	]
 })
