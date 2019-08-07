@@ -352,5 +352,11 @@ export default new Router({
 			name:'dashboard',
 			component: resolve => require(['@/views/login/dashboard.vue'], resolve),
 		},
+		// eCharts文件夹
+		{
+			path:'/echartMain',
+			name:'echartMain',
+			component: resolve => require(['@/views/eCharts/echartsMain.vue'], resolve),
+		}
 	]
 })
