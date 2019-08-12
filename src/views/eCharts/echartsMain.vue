@@ -35,7 +35,6 @@
 		methods:{
 			tab(name){
 				this.currentCom = name;
-				this.setMychart();
 			}
 		},
 		components:{
