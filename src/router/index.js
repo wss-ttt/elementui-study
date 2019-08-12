@@ -249,6 +249,11 @@ export default new Router({
 			name:'002-created_mounted',
 			component: resolve => require(['@/views/test2/002-created_mounted'], resolve),
 		},
+		{
+			path:'/003-component',
+			name:'003-component',
+			component: resolve => require(['@/views/test2/003-component'], resolve),
+		},
 		// 布局的学习
 		{
 			path:'/main',
