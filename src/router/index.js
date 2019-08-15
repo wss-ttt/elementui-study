@@ -239,6 +239,26 @@ export default new Router({
 			name:'040-select',
 			component: resolve => require(['@/views/test/040-select'], resolve),
 		},
+		{
+			path:'/001-nextTick',
+			name:'001-nextTick',
+			component: resolve => require(['@/views/test2/001-nextTick'], resolve),
+		},
+		{
+			path:'/002-created_mounted',
+			name:'002-created_mounted',
+			component: resolve => require(['@/views/test2/002-created_mounted'], resolve),
+		},
+		{
+			path:'/003-component',
+			name:'003-component',
+			component: resolve => require(['@/views/test2/003-component'], resolve),
+		},
+		{
+			path:'/004-test',
+			name:'004-test',
+			component: resolve => require(['@/views/test2/004-test'], resolve),
+		},
 		// 布局的学习
 		{
 			path:'/main',
