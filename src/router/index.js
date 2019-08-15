@@ -254,6 +254,11 @@ export default new Router({
 			name:'003-component',
 			component: resolve => require(['@/views/test2/003-component'], resolve),
 		},
+		{
+			path:'/004-test',
+			name:'004-test',
+			component: resolve => require(['@/views/test2/004-test'], resolve),
+		},
 		// 布局的学习
 		{
 			path:'/main',
