@@ -239,6 +239,7 @@ export default new Router({
 			name:'040-select',
 			component: resolve => require(['@/views/test/040-select'], resolve),
 		},
+		// test2文件
 		{
 			path:'/001-nextTick',
 			name:'001-nextTick',
@@ -258,6 +259,11 @@ export default new Router({
 			path:'/004-test',
 			name:'004-test',
 			component: resolve => require(['@/views/test2/004-test'], resolve),
+		},
+		{
+			path:'/005-messagecenter',
+			name:'005-messagecenter',
+			component:resolve=>require(['@/views/test2/005-messagecenter'],resolve)
 		},
 		// 布局的学习
 		{
