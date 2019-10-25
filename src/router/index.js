@@ -55,6 +55,11 @@ export default new Router({
 			component: resolve => require(['@/views/test/004-table.vue'], resolve),
 		},
 		{
+			path: '/004-table2',
+			name:'004-table2',
+			component: resolve => require(['@/views/test/004-table2.vue'], resolve),
+		},
+		{
 			path: '/005-tree',
 			name:'005-tree',
 			component: resolve => require(['@/views/test/005-tree.vue'], resolve),
@@ -265,6 +270,21 @@ export default new Router({
 			name:'005-messagecenter',
 			component:resolve=>require(['@/views/test2/005-messagecenter'],resolve)
 		},
+		{
+			path:'/006-json',
+			name:'006-json',
+			component:resolve=>require(['@/views/test2/006-json'],resolve)
+		},
+		{
+			path:'/007-temp',
+			name:'007-temp',
+			component:resolve=>require(['@/views/test2/007-temp'],resolve)
+		},
+		{
+			path:'/008-card',
+			name:'008-card',
+			component:resolve=>require(['@/views/test2/008-card'],resolve)
+		},
 		// 布局的学习
 		{
 			path:'/main',
@@ -289,7 +309,7 @@ export default new Router({
 			component: resolve => require(['@/views/layout/header_sidebar'], resolve),
 		},
 		{
-			path:'/header_sidebar_content',    // header组件需要控制siderbar组件
+			path:'/header_sidebar_content',    // 右侧的区域也会随着菜单的变化而变化
 			name:'header_sidebar_content',
 			component: resolve => require(['@/views/layout/header_sidebar_content'], resolve),
 		},
@@ -388,6 +408,21 @@ export default new Router({
 			path:'/echartMain2',
 			name:'echartMain2',
 			component: resolve => require(['@/views/eCharts/echartsMain2.vue'], resolve),
-		}
+		},
+		{
+			path:'/row1',
+			name:'row1',
+			component: resolve => require(['@/views/row/Index.vue'], resolve),
+		},
+		{
+			path:'/001-alert',
+			name:'001-alert',
+			component: resolve => require(['@/views/源码学习/001-alert.vue'], resolve),
+		},
+		{
+			path:'/002-message',
+			name:'002-message',
+			component: resolve => require(['@/views/源码学习/002-message.vue'], resolve),
+		},
 	]
 })

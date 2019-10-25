@@ -1,6 +1,7 @@
 <template>
 	<div class="menu">
-		<SideBar :menuList = "menuList"></SideBar>
+		<!-- <SideBar :menuList = "menuList"></SideBar> -->
+		<SideBar></SideBar>
 	</div>
 </template>
 
