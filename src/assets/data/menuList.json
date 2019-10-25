@@ -72,4 +72,25 @@
             "orderNum": 1,
             "children": []
         }]
-}]
+},
+{
+    "menuId":5,
+    "menuName":"相册",
+    "parentId":0,
+    "route":null,
+    "type":0,
+    "icon":"el-icon-news",
+    "oroderNum":1,
+    "children":[]
+},
+{
+    "menuId":6,
+    "menuName":"博客",
+    "parentId":0,
+    "route":null,
+    "type":0,
+    "icon":"el-icon-news",
+    "oroderNum":1,
+    "children":[]
+}
+]
