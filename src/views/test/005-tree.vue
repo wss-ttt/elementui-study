@@ -69,10 +69,14 @@
 				console.log(node);
 			},
 			setCurrentNode(){
-				console.log(1)
+				
 				// this.$refs['myTree'].setCurrentKey(7); //setCurrentKey
 				this.$refs['myTree'].setCurrentKey(3);
+
+				// setChecked的第三个参数是用那个设置子节点是否被勾选 默认是false不被勾选
+				// this.$refs['myTree'].setChecked(4,true,false)
 				// this.$refs['myTree'].setChecked(4,true,true)
+				this.$refs['myTree'].setCheckedKeys([4]) // 也能选中
 			}
 		}
 	};
