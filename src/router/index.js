@@ -65,6 +65,11 @@ export default new Router({
 			component: resolve => require(['@/views/test/005-tree.vue'], resolve),
 		},
 		{
+			path: '/005-tree2',
+			name:'005-tree2',
+			component: resolve => require(['@/views/test/005-tree2.vue'], resolve),
+		},
+		{
 			path: '/006-popover',
 			name:'006-popover',
 			component: resolve => require(['@/views/test/006-popover.vue'], resolve),
@@ -284,6 +289,26 @@ export default new Router({
 			path:'/008-card',
 			name:'008-card',
 			component:resolve=>require(['@/views/test2/008-card'],resolve)
+		},
+		{
+			path:'/009-input',
+			name:'009-input',
+			component:resolve=>require(['@/views/test2/009-input'],resolve)
+		},
+		{
+			path:'/010-render2',
+			name:'010-render2',
+			component:resolve=>require(['@/views/test2/010-render2'],resolve)
+		},
+		{
+			path:'/010-render3',
+			name:'010-render3',
+			component:resolve=>require(['@/views/test2/010-render3'],resolve)
+		},
+		{
+			path:'/010-render4',
+			name:'010-render4',
+			component:resolve=>require(['@/views/test2/010-render4'],resolve)
 		},
 		// 布局的学习
 		{
