@@ -1,8 +1,14 @@
 <template>
   <div class="box">
-    <el-table v-loading="tableLoading" :data="dataList">
+    <el-table v-loading="tableLoading" :data="dataList" border stripe>
       <el-table-column label="编号" prop="id"></el-table-column>
       <el-table-column label="姓名" prop="name"></el-table-column>
+      <el-table-column fixed="right" label="操作" width="100">
+        <template slot-scope="scope">
+          <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+          <el-button type="text" size="small">编辑</el-button>
+        </template>
+      </el-table-column>
     </el-table>
   </div>
 </template>
@@ -29,10 +35,8 @@ export default {
         this.tableLoading = false // 隐藏loading图标
         this.dataList = data.data //保存返回的数据
       })
-    }
+    },
+    handleClick() {}
   }
 }
 </script>
-
-<style>
-</style>
