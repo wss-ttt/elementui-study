@@ -310,6 +310,21 @@ export default new Router({
 			name:'010-render4',
 			component:resolve=>require(['@/views/test2/010-render4'],resolve)
 		},
+		{
+			path:'/011-computed',
+			name:'011-computed',
+			component:resolve=>require(['@/views/test2/011-computed'],resolve)
+		},
+		{
+			path:'/012-clientHeight',
+			name:'012-clientHeight',
+			component:resolve=>require(['@/views/test2/012-clientHeight'],resolve)
+		},
+		{
+			path:'/012-clientHeight2',
+			name:'012-clientHeight2',
+			component:resolve=>require(['@/views/test2/012-clientHeight2'],resolve)
+		},
 		// 布局的学习
 		{
 			path:'/main',
