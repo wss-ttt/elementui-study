@@ -14,6 +14,13 @@ import '@/assets/css/global.css'
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 Vue.prototype.$ajax = axios
+
+
+// 定义全局的filter
+Vue.filter('hello', function (msg) {
+  return msg + 'hello'
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

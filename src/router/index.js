@@ -330,6 +330,21 @@ export default new Router({
 			name:'012-directive',
 			component:resolve=>require(['@/views/test2/012-directive.vue'],resolve)
 		},
+		{
+			path:'/013-filter',
+			name:'013-filter',
+			component:resolve=>require(['@/views/test2/013-filter.vue'],resolve)
+		},
+		{
+			path:'/014-set',
+			name:'014-set',
+			component:resolve=>require(['@/views/test2/014-set.vue'],resolve)
+		},
+		{
+			path:'/014-set2',
+			name:'014-set2',
+			component:resolve=>require(['@/views/test2/014-set2.vue'],resolve)
+		},
 		// 布局的学习
 		{
 			path:'/main',
@@ -470,9 +485,14 @@ export default new Router({
 			component: resolve => require(['@/views/源码学习/002-message.vue'], resolve),
 		},
 		{
-			path:'/dynamic-table',      // 动态表格
+			path:'/dynamic-table',      // 动态表格  列的位置是固定的
 			name:'dynamic-table',
 			component: resolve => require(['@/views/table/dynamic-table'], resolve),
+		},
+		{
+			path:'/inline-edit-table',
+			name:'inline-edit-table',
+			component: resolve => require(['@/views/table/inline-edit-table'], resolve),
 		}
 	]
 })
