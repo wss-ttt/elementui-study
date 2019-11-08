@@ -325,6 +325,11 @@ export default new Router({
 			name:'012-clientHeight2',
 			component:resolve=>require(['@/views/test2/012-clientHeight2'],resolve)
 		},
+		{
+			path:'/012-directive',
+			name:'012-directive',
+			component:resolve=>require(['@/views/test2/012-directive.vue'],resolve)
+		},
 		// 布局的学习
 		{
 			path:'/main',
