@@ -469,5 +469,10 @@ export default new Router({
 			name:'002-message',
 			component: resolve => require(['@/views/源码学习/002-message.vue'], resolve),
 		},
+		{
+			path:'/dynamic-table',      // 动态表格
+			name:'dynamic-table',
+			component: resolve => require(['@/views/table/dynamic-table'], resolve),
+		}
 	]
 })
