@@ -336,14 +336,24 @@ export default new Router({
 			component:resolve=>require(['@/views/test2/013-filter.vue'],resolve)
 		},
 		{
-			path:'/014-set',
-			name:'014-set',
-			component:resolve=>require(['@/views/test2/014-set.vue'],resolve)
-		},
-		{
 			path:'/014-set2',
 			name:'014-set2',
 			component:resolve=>require(['@/views/test2/014-set2.vue'],resolve)
+		},
+		{
+			path:'/014-set3',
+			name:'014-set3',
+			component:resolve=>require(['@/views/test2/014-set3.vue'],resolve)
+		},
+		{
+			path:'/014-set4',
+			name:'014-set4',
+			component:resolve=>require(['@/views/test2/014-set4.vue'],resolve)
+		},
+		{
+			path:'/014-set5',
+			name:'014-sett5',
+			component:resolve=>require(['@/views/test2/014-set5.vue'],resolve)
 		},
 		// 布局的学习
 		{
