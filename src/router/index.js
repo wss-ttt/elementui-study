@@ -503,6 +503,12 @@ export default new Router({
 			path:'/inline-edit-table',
 			name:'inline-edit-table',
 			component: resolve => require(['@/views/table/inline-edit-table'], resolve),
+		},
+		// excel study
+		{
+			path:'/001-excel',
+			name:'001-excel',
+			component: resolve => require(['@/views/excel/001-excel.vue'], resolve),
 		}
 	]
 })
