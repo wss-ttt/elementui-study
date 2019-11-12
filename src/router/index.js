@@ -355,6 +355,11 @@ export default new Router({
 			name:'014-sett5',
 			component:resolve=>require(['@/views/test2/014-set5.vue'],resolve)
 		},
+		{
+			path:'/015-form-params',
+			name:'015-form-params',
+			component:resolve=>require(['@/views/test2/015-form-params.vue'],resolve)
+		},
 		// 布局的学习
 		{
 			path:'/main',
@@ -478,6 +483,11 @@ export default new Router({
 			path:'/echartMain2',
 			name:'echartMain2',
 			component: resolve => require(['@/views/eCharts/echartsMain2.vue'], resolve),
+		},
+		{
+			path:'/001-echart',
+			name:'001-echart',
+			component: resolve => require(['@/views/eCharts/001-echart.vue'], resolve),
 		},
 		{
 			path:'/row1',
