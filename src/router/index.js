@@ -360,6 +360,11 @@ export default new Router({
 			name:'015-form-params',
 			component:resolve=>require(['@/views/test2/015-form-params.vue'],resolve)
 		},
+		{
+			path:'/016-layout',
+			name:'016-layout',
+			component:resolve=>require(['@/views/test2/016-layout.vue'],resolve)
+		},
 		// 布局的学习
 		{
 			path:'/main',
