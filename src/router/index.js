@@ -365,6 +365,11 @@ export default new Router({
 			name:'016-layout',
 			component:resolve=>require(['@/views/test2/016-layout.vue'],resolve)
 		},
+		{
+			path:'/017-Cascader',
+			name:'017-Cascader',
+			component:resolve=>require(['@/views/test2/017-Cascader.vue'],resolve)
+		},
 		// 布局的学习
 		{
 			path:'/main',
