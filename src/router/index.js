@@ -370,6 +370,11 @@ export default new Router({
 			name:'017-Cascader',
 			component:resolve=>require(['@/views/test2/017-Cascader.vue'],resolve)
 		},
+		{
+			path:'/018-data',
+			name:'018-data',
+			component:resolve=>require(['@/views/test2/018-data.vue'],resolve)
+		},
 		// 布局的学习
 		{
 			path:'/main',
