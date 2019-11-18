@@ -534,6 +534,11 @@ export default new Router({
 			path:'/001-excel',
 			name:'001-excel',
 			component: resolve => require(['@/views/excel/001-excel.vue'], resolve),
+		},
+		{
+			path:'/test3-001',
+			name:'test3-001',
+			component: resolve => require(['@/views/test3/index.vue'], resolve),
 		}
 	]
 })
