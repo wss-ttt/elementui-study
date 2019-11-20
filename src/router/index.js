@@ -544,6 +544,33 @@ export default new Router({
 			path:'/test3-002',
 			name:'test3-002',
 			component: resolve => require(['@/views/test3/index2.vue'], resolve)
+		},
+		{
+			path:'/test3-003',
+			name:'test3-003',
+			component: resolve => require(['@/views/test3/index3.vue'], resolve)
+		},
+		{
+			path:'/test3-004',
+			name:'test3-004',
+			component: resolve => require(['@/views/test3/index4.vue'], resolve)
+		},
+		{
+			path:'/test3-main',
+			name:'test3-main',
+			component: resolve => require(['@/views/test3/main.vue'], resolve),
+			children:[
+				{
+					path:'index3',
+					name:'index3',
+					component: resolve => require(['@/views/test3/index3.vue'], resolve)
+				},
+				{
+					path:'index4',
+					name:'index4',
+					component: resolve => require(['@/views/test3/index4.vue'], resolve)
+				}
+			]
 		}
 	]
 })

@@ -8,7 +8,9 @@ export default {
     person:{
       name:'张三',
       age:18
-    }
+    },
+    startTime:'11-11',   // 开始时间
+    endTime:'12-12',     // 结束时间
   },
   mutations: {
   	// 改变折叠状态
@@ -25,6 +27,12 @@ export default {
     updatePerson(state,person){
       console.log('person',person)
       state.person = person
+    },
+    updateStartTime(state,startTime){
+      state.startTime = startTime
+    },
+    updateEndTime(state,endTime){
+      state.endTime = endTime
     }
   }
 }
