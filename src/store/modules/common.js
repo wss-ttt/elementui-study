@@ -11,6 +11,7 @@ export default {
     },
     startTime:'11-11',   // 开始时间
     endTime:'12-12',     // 结束时间
+    isChange:false,   // 是否改变了
   },
   mutations: {
   	// 改变折叠状态
@@ -33,6 +34,9 @@ export default {
     },
     updateEndTime(state,endTime){
       state.endTime = endTime
+    },
+    updateIsChange(state,isChange){
+      state.isChange = isChange
     }
   }
 }

@@ -14,6 +14,7 @@ export default {
   props: {},
   data() {
     return {
+      isEex: false, // 是否已改变了
       st: '', // 开始时间
       et: '' // 结束时间
     }
@@ -22,29 +23,47 @@ export default {
     startTime: {
       get() {
         return this.$store.state.common.startTime
-      },
-      set(val) {
-        this.$store.commit('common/updateStartTime',val)
       }
     },
     endTime: {
       get() {
         return this.$store.state.common.endTime
-      },
-      set(val) {
-        this.$store.commit('common/updateEndTime',val)
+      }
+    },
+    isChange: {
+      get() {
+        return this.$store.state.common.isChange
       }
     }
   },
   components: {},
   created() {},
   mounted() {},
+  activated() {
+    // 回显操作
+    if (this.isEex) {
+      this.st = this.startTime
+      this.et = this.endTime
+    }
+  },
+  deactivated(){
+    this.isEex = false
+  },
   destroyed() {},
-  watch: {},
+  watch: {
+    isChange: {
+      handler(newVal, oldVal) {
+        console.log('监听改变事件')
+        this.isEex = true
+      }
+    }
+  },
   methods: {
     search() {
-      this.startTime = this.st // 开始时间
-      this.endTime = this.et // 结束时间
+      this.$emit('search', {
+        startTime: this.st,
+        endTime: this.et
+      })
     }
   }
 }
