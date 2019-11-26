@@ -576,6 +576,12 @@ export default new Router({
 			path:'/test3-005',
 			name:'test3-005',
 			component: resolve => require(['@/views/test3/index5.vue'], resolve)
+		},
+		// 文件夹 echarts2
+		{
+			path:'/echart2-index',
+			name:'echart2-index',
+			component: resolve => require(['@/views/echarts2/index.vue'], resolve)
 		}
 	]
 })
