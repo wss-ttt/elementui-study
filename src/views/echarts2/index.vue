@@ -52,12 +52,26 @@ export default {
           name: '乔峰',
           type: 'line',
           data: [79, 34, 48]
+        },
+        {
+            name:'杨过',
+            type:'line',
+            data:[54,89,76]
+        },
+        {
+            name:'小龙女',
+            type:'line',
+            data:[87,92,69]
         }
       ],
       tooltip:{
           trigger:'axis',
-          axisPointer:{
+          /* axisPointer:{
               type:'cross'
+          }, */
+          formatter:function(params ){
+              console.log(params)
+              return '好好学习'
           }
       }
     }
