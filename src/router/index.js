@@ -571,6 +571,11 @@ export default new Router({
 					component: resolve => require(['@/views/test3/index4.vue'], resolve)
 				}
 			]
+		},
+		{
+			path:'/test3-005',
+			name:'test3-005',
+			component: resolve => require(['@/views/test3/index5.vue'], resolve)
 		}
 	]
 })
