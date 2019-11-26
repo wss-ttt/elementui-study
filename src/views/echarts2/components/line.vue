@@ -74,7 +74,6 @@ export default {
         option.series = this.data.series */
         // 合并对象
         let option = Object.assign({},this.baseConfig,this.data)
-        console.log('option',option)
         myChart.setOption(option)
         window.addEventListener('resize', () => {
           myChart.resize()
