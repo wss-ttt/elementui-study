@@ -30,12 +30,14 @@ export default {
         },
         xAxis: {
           type: 'category',
-          data: []
+          // data: [],   // 这个其实可以不需要
+          name:'学科'
         },
         yAxis: {
-          type: 'value'
+          type: 'value',
+          name:'成绩'
         },
-        series: []
+        // series: []    // 这个其实可以不需要
       },
       id: ''
     }
