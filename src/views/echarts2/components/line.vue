@@ -69,11 +69,11 @@ export default {
         oBox.innerHTML = '暂无数据'
       } else {
         // 数据不为空
-        /* let option = this.baseConfig
+        let option = this.baseConfig
         option.xAxis.data = this.data.xAxis.data
-        option.series = this.data.series */
-        // 合并对象
-        let option = Object.assign({},this.baseConfig,this.data)
+        option.series = this.data.series
+        // 合并对象 这种方法不行
+        // let option = Object.assign({},this.baseConfig,this.data)
         myChart.setOption(option)
         window.addEventListener('resize', () => {
           myChart.resize()
