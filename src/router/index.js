@@ -582,6 +582,21 @@ export default new Router({
 			path:'/echart2-index',
 			name:'echart2-index',
 			component: resolve => require(['@/views/echarts2/index.vue'], resolve)
+		},
+		{
+			path:'/test4/index',
+			name:'test4-index',
+			component: resolve => require(['@/views/test4/index.vue'], resolve)
+		},
+		{
+			path:'/test4/index2',
+			name:'test4-index2',
+			component: resolve => require(['@/views/test4/index2.vue'], resolve)
+		},
+		{
+			path:'/test4/index3',
+			name:'test4-index3',
+			component: resolve => require(['@/views/test4/index3.vue'], resolve)
 		}
 	]
 })
