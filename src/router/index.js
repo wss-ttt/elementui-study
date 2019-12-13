@@ -597,6 +597,11 @@ export default new Router({
 			path:'/test4/index3',
 			name:'test4-index3',
 			component: resolve => require(['@/views/test4/index3.vue'], resolve)
+		},
+		{
+			path:'/test4/index4',
+			name:'test4-index4',
+			component: resolve => require(['@/views/test4/index4.vue'], resolve)
 		}
 	]
 })
