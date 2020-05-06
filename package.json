@@ -5,7 +5,7 @@
   "author": "王水胜 <602466011@qq.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --host 0.0.0.0",
     "start": "npm run dev",
     "build": "node build/build.js"
   },
@@ -18,7 +18,8 @@
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.1.1",
-    "xlsx": "^0.14.5"
+    "xlsx": "^0.14.5",
+    "vue-awesome-swiper": "^4.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
