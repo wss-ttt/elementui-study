@@ -609,6 +609,16 @@ export default new Router({
 			component: resolve => require(['@/views/test4/index5.vue'], resolve)
 		},
 		{
+			path: '/test4/index6', // element-ui el-drawer动画抖动原因
+			name: 'test4-index6',
+			component: resolve => require(['@/views/test4/index6.vue'], resolve)
+		},
+		{
+			path: '/test4/index7', // 总结遮罩层的两种结构实现方法
+			name: 'test4-index7',
+			component: resolve => require(['@/views/test4/index7.vue'], resolve)
+		},
+		{
 			path: '/swiper/index',
 			name: 'swiper-index',
 			component: resolve => require(['@/views/swiper/index.vue'], resolve)
@@ -617,6 +627,11 @@ export default new Router({
 			path: '/swiper/index2',
 			name: 'swiper-index2',
 			component: resolve => require(['@/views/swiper/index2.vue'], resolve)
+		},
+		{
+			path: '/swiper/index3',
+			name: 'swiper-index3',
+			component: resolve => require(['@/views/swiper/index3.vue'], resolve)
 		}
 	]
 })
