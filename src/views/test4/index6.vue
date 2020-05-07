@@ -74,7 +74,7 @@ export default {
       //   animation: drawer-in 225ms cubic-bezier(0,0,.2,1) 0s;
       animation: drawer-in 1s 0s;
       &.out {
-        animation: drawer-out 1s reverse 0s;
+        animation: drawer-out 1s 0s;
       }
     }
   }
