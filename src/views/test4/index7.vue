@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="box">
       <button @click="isVisible = true">显示</button>
-      <div class="mask" v-show="isVisible">
+      <div class="mask" id="mask" v-show="isVisible" @click="hide($event)">
         <div class="content">好好学习</div>
       </div>
     </div>
@@ -26,7 +26,15 @@ export default {
   deactivated() {},
   updated() {},
   destroyed() {},
-  methods: {},
+  methods: {
+      hide(event) {
+          let target = event.target 
+          // 这里需要判断点击的是mask还是mask中的其他元素(例如:content)
+          if(target.id === 'mask'){
+              this.isVisible = false
+          }
+      }
+  },
   filter: {}
 }
 </script>
