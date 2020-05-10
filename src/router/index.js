@@ -619,6 +619,16 @@ export default new Router({
 			component: resolve => require(['@/views/test4/index7.vue'], resolve)
 		},
 		{
+			path: '/test4/index8',
+			name: 'test4-index8',
+			component: resolve => require(['@/views/test4/index8.vue'], resolve)
+		},
+		{
+			path: '/test4/index9',
+			name: 'test4-index9',
+			component: resolve => require(['@/views/test4/index9.vue'], resolve)
+		},
+		{
 			path: '/swiper/index',
 			name: 'swiper-index',
 			component: resolve => require(['@/views/swiper/index.vue'], resolve)
