@@ -693,6 +693,11 @@ export default new Router({
 			path: '/swiper/index7',
 			name: 'swiper-index7',
 			component: resolve => require(['@/views/swiper/index7.vue'], resolve)
+		},
+		{
+			path: '/swiper/index8',
+			name: 'swiper-index8',
+			component: resolve => require(['@/views/swiper/index8.vue'], resolve)
 		}
 	]
 })
