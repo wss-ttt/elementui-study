@@ -3,7 +3,6 @@
     <div class="box">
       <button type="button" @click="isVisible = true">显示</button>
       <div class="drawer" v-show="isVisible">
-        <!-- <div class="mask" @click="isVisible = false"></div> -->
         <div class="mask" @click="hide"></div>
         <div class="content" :class="{'out':out}"></div>
       </div>
@@ -32,10 +31,10 @@ export default {
   methods: {
     hide() {
       // 1.需要先执行动画
-      // 2.然后在隐藏
       this.out = true
       setTimeout(()=>{
           this.isVisible = false
+        // 2.然后在隐藏
           this.out = false
       },1000)
     }
@@ -71,7 +70,6 @@ export default {
       height: 200px;
       background: #ccc;
       bottom: 0;
-      //   animation: drawer-in 225ms cubic-bezier(0,0,.2,1) 0s;
       animation: drawer-in 1s 0s;
       &.out {
         animation: drawer-out 1s 0s;

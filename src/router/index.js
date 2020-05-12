@@ -619,6 +619,36 @@ export default new Router({
 			component: resolve => require(['@/views/test4/index7.vue'], resolve)
 		},
 		{
+			path: '/test4/index8',
+			name: 'test4-index8',
+			component: resolve => require(['@/views/test4/index8.vue'], resolve)
+		},
+		{
+			path: '/test4/index9',
+			name: 'test4-index9',
+			component: resolve => require(['@/views/test4/index9.vue'], resolve)
+		},
+		{
+			path: '/test5/index',
+			name: 'test5-index',
+			component: resolve => require(['@/views/test5/index.vue'], resolve)
+		},
+		{
+			path: '/test5/index2',
+			name: 'test5-index2',
+			component: resolve => require(['@/views/test5/index2.vue'], resolve)
+		},
+		{
+			path: '/test5/index3',
+			name: 'test5-index3',
+			component: resolve => require(['@/views/test5/index3.vue'], resolve)
+		},
+		{
+			path: '/test5/index4',
+			name: 'test5-index4',
+			component: resolve => require(['@/views/test5/index4.vue'], resolve)
+		},
+		{
 			path: '/swiper/index',
 			name: 'swiper-index',
 			component: resolve => require(['@/views/swiper/index.vue'], resolve)
@@ -632,6 +662,22 @@ export default new Router({
 			path: '/swiper/index3',
 			name: 'swiper-index3',
 			component: resolve => require(['@/views/swiper/index3.vue'], resolve)
+		},
+		{
+			path: '/swiper/index4',
+			name: 'swiper-index4',
+			component: resolve => require(['@/views/swiper/index4.vue'], resolve)
+		},
+		{
+			path: '/swiper/index5',
+			name: 'swiper-index5',
+			component: resolve => require(['@/views/swiper/index5.vue'], resolve)
+		},
+		{
+			path: '/swiper/index6',
+			name: 'swiper-index6',
+			component: resolve => require(['@/views/swiper/index6.vue'], resolve)
+
 		}
 	]
 })
