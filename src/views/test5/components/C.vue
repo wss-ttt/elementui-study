@@ -5,15 +5,15 @@
           <br>
           <!-- 年龄: {{ list[0]['age'] }} -->
           <br>
-          性别: {{ list[0]['sex'] }}
+          <!-- 性别: {{ list[0]['sex'] }} -->
       </div>
-      <!-- <div v-for="(it, index) in list">
+      <div v-for="(it, index) in list">
           姓名: {{ it['name'] }}
           <br>
           年龄: {{ it['age'] }}
           <br>
           性别: {{ it['sex'] }}
-      </div> -->
+      </div>
   </div>
 </template>
 
@@ -35,7 +35,9 @@
     watch: {},
     created() {},
     mounted() {
+        
         console.log('子组件 mounted')
+        console.log('子组件list:',this.list)
     },
     activated() {},
     deactivated() {},

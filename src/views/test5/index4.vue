@@ -13,7 +13,8 @@
     props: {},
     data() {
       return {
-        list: []
+        list: [],
+        name: ''
       }
     },
     computed: {},
@@ -22,7 +23,7 @@
     mounted() {
       this.getData()
       console.log('父组件的mounted')
-      console.log(this.list)
+      console.log('父组件list:',this.list)
     },
     activated() {},
     deactivated() {},
