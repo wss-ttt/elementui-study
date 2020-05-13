@@ -698,6 +698,11 @@ export default new Router({
 			path: '/swiper/index8',
 			name: 'swiper-index8',
 			component: resolve => require(['@/views/swiper/index8.vue'], resolve)
+		},
+		{
+			path: '/drawer/index',
+			name: 'drawer-index',
+			component: resolve => require(['@/views/drawer/index.vue'], resolve)
 		}
 	]
 })
