@@ -660,6 +660,41 @@ export default new Router({
 			component: resolve => require(['@/views/test5/index6.vue'], resolve)
 		},
 		{
+			path: '/test6/index',
+			name: 'test6-index',
+			component: resolve => require(['@/views/test6/index.vue'], resolve)
+
+		},
+		{
+			path: '/test6/index2',
+			name: 'test6-index2',
+			component: resolve => require(['@/views/test6/index2.vue'], resolve)
+
+		},
+		{
+			path: '/test6/index3',
+			name: 'test6-index3',
+			component: resolve => require(['@/views/test6/index3.vue'], resolve),
+			children: [
+				{
+					path: 'B',
+					name: 'test6-index3-b',
+					component: resolve => require(['@/views/test6/components/B.vue'], resolve),
+				},
+				{
+					path: 'C',
+					name: 'test6-index3-c',
+					component: resolve => require(['@/views/test6/components/C.vue'], resolve),
+				},
+				{
+					path: 'D',
+					name: 'test6-index3-d',
+					component: resolve => require(['@/views/test6/components/D.vue'], resolve),
+
+				}
+			]
+		},
+		{
 			path: '/swiper/index',
 			name: 'swiper-index',
 			component: resolve => require(['@/views/swiper/index.vue'], resolve)
