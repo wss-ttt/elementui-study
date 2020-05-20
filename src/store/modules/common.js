@@ -13,7 +13,7 @@ export default {
     endTime:'12-12',     // 结束时间
     id: '',
     isChange:false,   // 是否改变了
-    studentList: []
+    studentList: sessionStorage.getItem('studentList') || []
   },
   mutations: {
   	// 改变折叠状态
@@ -44,6 +44,7 @@ export default {
       state.isChange = isChange
     },
     updateStudentList(state, studentList) {
+      sessionStorage.setItem('studentList', JSON.stringify(studentList))
       state.studentList = studentList
     }
   }
