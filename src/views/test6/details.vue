@@ -1,6 +1,5 @@
 <template>
   <div class="wrapper">
-    <h2>详情信息</h2>
     {{ $route.params }}
   </div>
 </template>
@@ -12,19 +11,35 @@
     data() {
       return {}
     },
-    computed: {},
-    watch: {
-      $route: 'routeHandle'
+    computed: {
+      isChange() {
+        return this.$store.state.common.isChange
+      }
     },
-    created() {},
-    mounted() {},
-    activated() {},
-    deactivated() {},
-    updated() {},
-    destroyed() {},
+    watch: {
+      $route: 'routeHandle',
+      isChange: {
+        handler(newVal, oldVal) {
+          if (newVal) {
+            console.log('isChange')
+            this.init()
+            this.$store.commit('common/updateIsChange', false)
+          }
+        }
+      }
+    },
+    mounted() {
+      // 第一次进来,需要执行
+      console.log('mounted')
+      this.init()
+    },
     methods: {
-      routeHandle() {
-        console.log('路由发生变化了')
+      routeHandle(route) {
+        console.log('routeHandle')
+        this.init()
+      },
+      init() {
+        console.log('init')
       }
     },
     filter: {}
