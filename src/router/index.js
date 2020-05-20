@@ -3,7 +3,10 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
-
+const VueRouterPush = Router.prototype.push 
+Router.prototype.push = function push (to) {
+    return VueRouterPush.call(this, to).catch(err => err)
+}
 export default new Router({
 	routes: [
 		{
@@ -695,14 +698,28 @@ export default new Router({
 			]
 		},
 		{
-			path: '/test6/list',
-			name: 'test6-list',
-			component: resolve => require(['@/views/test6/list.vue'], resolve),
+			path: '/test6/index4',
+			name: 'test6-index4',
+			component: resolve => require(['@/views/test6/index4.vue'], resolve),
+			children: [
+				{
+					path: 'details/:id',
+					name: 'details',
+					component: resolve => require(['@/views/test6/details.vue'], resolve),
+				},
+			]
 		},
 		{
-			path: '/test6/details/:id',
-			name: 'test6-details',
-			component: resolve => require(['@/views/test6/details.vue'], resolve),
+			path: '/test6/index5',
+			name: 'test6-index5',
+			component: resolve => require(['@/views/test6/index5.vue'], resolve),
+			children: [
+				{
+					path: 'index5-e',
+					name: 'index5-e',
+					component: resolve => require(['@/views/test6/components/E.vue'], resolve),
+				}
+			]
 		},
 		{
 			path: '/swiper/index',
