@@ -18,17 +18,11 @@
 
       }
     },
-    computed: {
-    },
+    computed: {},
     watch: {},
     created() {
-      this.getData()
+        this.getData()
     },
-    mounted() {},
-    activated() {},
-    deactivated() {},
-    updated() {},
-    destroyed() {},
     methods: {
       getData() {
         setTimeout(() => {
@@ -39,7 +33,7 @@
               name: '张三' + i
             })
           }
-          console.log('父组件中异步获取数据')
+          console.log('父组件中异步获取数据,并保存到store中去')
           this.$store.commit('common/updateStudentList', data)
         }, 0)
       },

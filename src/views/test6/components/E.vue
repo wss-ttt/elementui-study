@@ -22,11 +22,16 @@
         return this.$store.state.common.studentList
       }
     },
-    watch: {},
+    watch: {
+      studentList: {
+        handler(newVal, oldVal) {
+          console.log('监听数据的变化')
+          this.stuId = this.studentList[0]['id']
+        }
+      }
+    },
     created() {},
     mounted() {
-      console.log('我是子组件中的mounted')
-      this.studentList.length && (this.stuId = this.studentList[0]['id'])
     },
     activated() {},
     deactivated() {},
