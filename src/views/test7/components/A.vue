@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
        A
-       <input type="text" v-modal="name"/>
+       <input type="text" v-model="name"/>
    </div>
 </template>
 
@@ -18,11 +18,15 @@
     computed: {},
     watch: {},
     created() {},
-    mounted() {},
+    mounted() {
+      console.log('A mounted')
+    },
     activated() {},
     deactivated() {},
     updated() {},
-    destroyed() {},
+    destroyed() {
+      console.log('A destroyed')
+    },
     methods: {},
     filter: {}
   }

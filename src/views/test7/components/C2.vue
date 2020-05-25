@@ -1,19 +1,14 @@
 <template>
-  <div class="wrapper">
-    B
-    <input type="text" v-model="name" />
-  </div>
+  <div class="wrapper">C2</div>
 </template>
 
 <script>
 export default {
-  name: 'B',
+  name: 'C2',
   components: {},
   props: {},
   data() {
-    return {
-      name: ''
-    }
+    return {}
   },
   computed: {},
   watch: {},

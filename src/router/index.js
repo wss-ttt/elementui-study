@@ -727,19 +727,28 @@ export default new Router({
 			component: resolve => require(['@/views/test7/index.vue'], resolve),
 			children: [
 				{
-					path: '/A',
+					path: 'A',
 					name: 'A',
 					component: resolve => require(['@/views/test7/components/A.vue'], resolve),
 				},
 				{
-					path: '/B',
+					path: 'B',
 					name: 'B',
 					component: resolve => require(['@/views/test7/components/B.vue'], resolve),
 				},
 				{
-					path: '/C',
+					path: 'C',
 					name: 'C',
 					component: resolve => require(['@/views/test7/components/C.vue'], resolve),
+					children: [{
+						path: 'C1',
+						name: 'C1',
+						component: resolve => require(['@/views/test7/components/C1.vue'], resolve),
+					},{
+						path: 'C2',
+						name: 'C2',
+						component: resolve => require(['@/views/test7/components/C2.vue'], resolve),
+					}]
 				}
 			]
 		},

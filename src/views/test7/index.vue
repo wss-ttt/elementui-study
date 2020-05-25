@@ -1,12 +1,16 @@
 <template>
   <div class="wrapper">
-    <router-link :to="{name: 'a'}">a</router-link>
-    <router-link :to="{name: 'b'}">b</router-link>
-    <router-link :to="{name: 'c'}">c</router-link>
+    <div class="header">
+      <span @click="toUrl('A')" :class="{'active': current === 'A'}">a</span>
+      <span @click="toUrl('B')" :class="{'active': current === 'B'}">b</span>
+      <span @click="toUrl('C')" :class="{'active': current === 'C'}">c</span>
+    </div>
     <hr />
-    <keep-alive :include="cache">
-      <router-view></router-view>
-    </keep-alive>
+    <div class="content">
+      <keep-alive :include="cache">
+        <router-view :key="key"></router-view>
+      </keep-alive>
+    </div>
   </div>
 </template>
 
@@ -16,10 +20,16 @@ export default {
   props: {},
   data() {
     return {
-      cache: ['A', 'B']
+      current: 'A',
+      // 缓存哪些组件
+      cache: ['A', 'B', 'C']
     }
   },
-  computed: {},
+  computed: {
+    key() {
+      return this.$route.path
+    }
+  },
   watch: {},
   created() {},
   mounted() {},
@@ -27,13 +37,44 @@ export default {
   deactivated() {},
   updated() {},
   destroyed() {},
-  methods: {},
+  methods: {
+    toUrl(name) {
+      this.current = name
+      // let isHas = this.cache.includes(name)
+      // if (!isHas) this.cache.push(name)
+      console.log('this.cache', this.cache)
+      this.$router.push({
+        name: name
+      })
+    }
+  },
   filter: {}
 }
 </script>
-<style scoped>
-a {
-  font-size: 30px;
+<style scoped lang="scss">
+.header {
+  width: 500px;
+  padding: 30px;
+  border: 1px solid #ccc;
+  margin: auto;
+  span {
+    font-size: 30px;
+    width: 100px;
+    background: #fb3;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    &.active {
+      background: #1acd7e;
+      color: #fff;
+    }
+  }
+}
+.content {
+  width: 500px;
+  border: 1px solid #ccc;
+  height: 400px;
+  margin: auto;
 }
 </style>
  
