@@ -730,6 +730,35 @@ export default new Router({
 			path: '/test6/index8',
 			name: 'test6-index8',
 			component: resolve => require(['@/views/test6/index8.vue'], resolve),
+			path: '/test7/index',
+			name: 'test7-index',
+			component: resolve => require(['@/views/test7/index.vue'], resolve),
+			children: [
+				{
+					path: 'A',
+					name: 'A',
+					component: resolve => require(['@/views/test7/components/A.vue'], resolve),
+				},
+				{
+					path: 'B',
+					name: 'B',
+					component: resolve => require(['@/views/test7/components/B.vue'], resolve),
+				},
+				{
+					path: 'C',
+					name: 'C',
+					component: resolve => require(['@/views/test7/components/C.vue'], resolve),
+					children: [{
+						path: 'C1',
+						name: 'C1',
+						component: resolve => require(['@/views/test7/components/C1.vue'], resolve),
+					},{
+						path: 'C2',
+						name: 'C2',
+						component: resolve => require(['@/views/test7/components/C2.vue'], resolve),
+					}]
+				}
+			]
 		},
 		{
 			path: '/swiper/index',
