@@ -722,6 +722,28 @@ export default new Router({
 			]
 		},
 		{
+			path: '/test7/index',
+			name: 'test7-index',
+			component: resolve => require(['@/views/test7/index.vue'], resolve),
+			children: [
+				{
+					path: '/a',
+					name: 'a',
+					component: resolve => require(['@/views/test7/components/A.vue'], resolve),
+				},
+				{
+					path: '/b',
+					name: 'b',
+					component: resolve => require(['@/views/test7/components/B.vue'], resolve),
+				},
+				{
+					path: '/c',
+					name: 'c',
+					component: resolve => require(['@/views/test7/components/C.vue'], resolve),
+				}
+			]
+		},
+		{
 			path: '/swiper/index',
 			name: 'swiper-index',
 			component: resolve => require(['@/views/swiper/index.vue'], resolve)
