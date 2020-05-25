@@ -1,7 +1,6 @@
 <template>
   <div class="wrapper">
-    <button type="button" @click="init">初始数据</button>
-    <button type="button" @click="add">添加数据</button>
+    <button type="button" @click="update">更新数据</button>
     <ul>
       <li v-for="item in studentList" :key="item.name">{{ item.name }}</li>
     </ul>
@@ -29,7 +28,9 @@
       }
     },
     watch: {},
-    created() {},
+    created() {
+      this.init()
+    },
     mounted() {},
     activated() {},
     deactivated() {},
@@ -38,18 +39,13 @@
     methods: {
       init() {
         this.$store.commit('common/updateStudentList', this.list)
-        console.log(this.list === this.$store.state.common.studentList)// true
       },
-      add() {
-        this.list.push({
+      update() {
+        this.list = [{
           name: '乔峰',
           age: 28
-        })
-        /* this.list = [{
-            name: '乔峰',
-            age: 28
-        }] */
-        // console.log(this.$store.state.common.studentList)
+        }]
+        this.$store.commit('common/updateStudentList', this.list)
       }
     },
     filter: {}
