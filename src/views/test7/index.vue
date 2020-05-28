@@ -7,8 +7,16 @@
     </div>
     <hr />
     <div class="content">
-      <keep-alive :include="cache">
+      <!-- <keep-alive :include="cache">
         <router-view :key="key"></router-view>
+      </keep-alive> -->
+
+      <keep-alive include="A, B">
+        <router-view></router-view>
+      </keep-alive>
+
+      <keep-alive :include="include">
+        <router-view></router-view>
       </keep-alive>
     </div>
   </div>
@@ -22,7 +30,8 @@ export default {
     return {
       current: 'A',
       // 缓存哪些组件
-      cache: ['A', 'B', 'C']
+      // cache: ['A', 'B', 'C']
+      include: 'A, B'
     }
   },
   computed: {
@@ -42,7 +51,6 @@ export default {
       this.current = name
       // let isHas = this.cache.includes(name)
       // if (!isHas) this.cache.push(name)
-      console.log('this.cache', this.cache)
       this.$router.push({
         name: name
       })
