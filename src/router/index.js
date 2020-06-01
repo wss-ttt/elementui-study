@@ -773,6 +773,38 @@ export default new Router({
 			}]
 		},
 		{
+			path: '/test8/index',
+			name: 'test8-index',
+			component: resolve => require(['@/views/test8/index.vue'], resolve),
+			children: [{
+				path: 'aa',
+				name: 'AA',
+				component: resolve => require(['@/views/test8/components/AA.vue'], resolve),
+				meta: {
+					keepAlive: true
+				}
+			},{
+				path: 'bb',
+				name: 'BB',
+				component: resolve => require(['@/views/test8/components/BB.vue'], resolve),
+				meta: {
+					keepAlive: false
+				}
+			},{
+				path: 'cc',
+				name: 'CC',
+				component: resolve => require(['@/views/test8/components/CC.vue'], resolve),
+				meta: {
+					keepAlive: true
+				}
+			}]
+		},
+		{
+			path: '/test8/index2',
+			name: 'test8-index2',
+			component: resolve => require(['@/views/test8/index2.vue'], resolve),
+		},
+		{
 			path: '/swiper/index',
 			name: 'swiper-index',
 			component: resolve => require(['@/views/swiper/index.vue'], resolve)
