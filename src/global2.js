@@ -1,0 +1,1 @@
+global.name = '乔峰'

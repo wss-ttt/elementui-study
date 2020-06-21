@@ -252,6 +252,11 @@ export default new Router({
 			name:'040-select',
 			component: resolve => require(['@/views/test/040-select'], resolve),
 		},
+		{
+			path:'/041-cacs',
+			name:'041-cacs',
+			component: resolve => require(['@/views/test/041-cacs'], resolve),
+		},
 		// test2文件
 		{
 			path:'/001-nextTick',
