@@ -35,18 +35,21 @@
         let res = []
         let str
         if (this.ranking < 10) {
+          // 只有一位(前面需要补充2个0)
           res = [0, 0, this.ranking]
         } else if (this.ranking < 100) {
+          // 只有两位(前面需要补充1个0)
           str = '0' + this.ranking
           res = [0, +str.charAt(1), +str.charAt(2)]
         } else if (this.ranking < 1000) {
+          // 只有3位(前面就不需要补充0)
           str = '' + this.ranking
           res = [+str.charAt(0), +str.charAt(1), +str.charAt(2)]
         }
         return res
       },
       newRanking2() {
-        return this.ranking2 && [...('' + this.ranking2)] || [0]
+        return this.ranking2 && [...('' + this.ranking2)] || [0, 0, 0]
       }
     },
     watch: {},
@@ -54,8 +57,7 @@
     mounted() {
       setTimeout(() => {
         this.ranking = 33
-        this.ranking2 = 29
-
+        this.ranking2 = 22
       }, 1000)
     },
     activated() {},
@@ -64,7 +66,9 @@
     destroyed() {},
     methods: {
       change() {
-        this.ranking = 112
+        // this.ranking = 112
+        console.log(this.newRanking)
+        console.log(this.newRanking2)
       },
       change2() {
         this.ranking2 = 11
