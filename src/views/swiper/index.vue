@@ -1,11 +1,15 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption" class="box">
+    <swiper ref="mySwiper" v-if="visible" :options="swiperOption" class="box">
       <swiper-slide class="item" style="background: red;">I'm Slide 1</swiper-slide>
       <swiper-slide class="item" style="background: green;">I'm Slide 2</swiper-slide>
       <swiper-slide class="item" style="background: yellow;">I'm Slide 3</swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
+    <button type="button" @click="visible = !visible">显示/隐藏</button>
+    <button type="button" @click="show">显示</button>
+    <button type="button" @click="stop">stop</button>
+    <button type="button" @click="start">start</button>
   </div>
 </template>
 
@@ -15,6 +19,7 @@ export default {
   props: {},
   data() {
     return {
+      visible: true,
       swiperOption: {
         direction: 'vertical',
         autoplay: true,
@@ -22,7 +27,12 @@ export default {
       }
     }
   },
-  computed: {},
+  computed: {
+    mySwiper() {
+      // return this.$refs['mySwiper'].$swiper
+      return this.$refs['mySwiper'].swiperInstance
+    }
+  },
   watch: {},
   created() {},
   mounted() {},
@@ -30,7 +40,19 @@ export default {
   deactivated() {},
   updated() {},
   destroyed() {},
-  methods: {},
+  methods: {
+    show() {
+      console.log(this.mySwiper)
+    },
+    stop() {
+      const res = this.mySwiper.autoplay.stop()
+      console.log(res)
+    },
+    start() {
+      const res = this.mySwiper.autoplay.start()
+      console.log(res)
+    }
+  },
   filter: {}
 }
 </script>
