@@ -12,7 +12,7 @@ import store from './store/index.js'
 import '@/assets/css/global.css'
 // vue-awesome-swiper插件全局引入 -- 开始
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-import 'swiper/dist/css/swiper.css'    //在全局没引入，这里记得要！
+import 'swiper/css/swiper.css'    //在全局没引入，这里记得要！
 Vue.use(VueAwesomeSwiper, /* { default options with global component } */)
 // vue-awesome-swiper插件全局引入 -- 结束
 import './global2'
