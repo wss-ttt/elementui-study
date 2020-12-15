@@ -7,7 +7,7 @@
     <router-view></router-view>
     <div v-for="(item,index) in list" :key="index" :ref="item">1</div>
     <button type="button" @click="change">改变大小</button>
-    <div class="box" ref="box">box</div>
+    <div class="box" ref="box" :class="{ 'big': changeBig }">box</div>
   </div>
 </template>
 
@@ -18,6 +18,7 @@ export default {
   props: {},
   data() {
     return {
+      changeBig: false,
       list: ['box', 'box', 'box']
     }
   },
@@ -26,7 +27,6 @@ export default {
     // $route: 'routeHandle'
   },
   created() {
-    console.log(resizeEvent)
   },
   mounted() {
     resizeEvent(this.$refs['box'], () => {
@@ -48,7 +48,7 @@ export default {
     },
     change() {
       // 改变dvi大小
-      this.$refs['box'].style.width = '300px'
+      this.changeBig = !this.changeBig
     }
     /* routeHandle(to) {
       console.log(to)
@@ -62,5 +62,11 @@ export default {
   width: 100px;
   height: 100px;
   border: 1px solid red;
+  &.big {
+    width: 200px;
+    height: 200px;
+    border: 1px solid green;
+  }
 }
+
 </style>
