@@ -5,22 +5,34 @@
     </ul>
     <hr>
     <router-view></router-view>
+    <div v-for="(item,index) in list" :key="index" :ref="item">1</div>
+    <button type="button" @click="change">改变大小</button>
+    <div class="box" ref="box">box</div>
   </div>
 </template>
 
 <script>
+import resizeEvent from 'element-resize-event'
 export default {
   components: {},
   props: {},
   data() {
-    return {}
+    return {
+      list: ['box', 'box', 'box']
+    }
   },
   computed: {},
   watch: {
     // $route: 'routeHandle'
   },
-  created() {},
-  mounted() {},
+  created() {
+    console.log(resizeEvent)
+  },
+  mounted() {
+    resizeEvent(this.$refs['box'], () => {
+      console.log('大小改变了')
+    })
+  },
   activated() {},
   deactivated() {},
   updated() {},
@@ -34,6 +46,9 @@ export default {
         }
       })
     },
+    change() {
+      this.$refs['box'].style.width = '300px'
+    }
     /* routeHandle(to) {
       console.log(to)
     } */
@@ -41,5 +56,10 @@ export default {
   filters: {}
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
+.box {
+  width: 100px;
+  height: 100px;
+  border: 1px solid red;
+}
 </style>
