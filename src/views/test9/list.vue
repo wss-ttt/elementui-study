@@ -47,6 +47,7 @@ export default {
       })
     },
     change() {
+      // 改变dvi大小
       this.$refs['box'].style.width = '300px'
     }
     /* routeHandle(to) {
