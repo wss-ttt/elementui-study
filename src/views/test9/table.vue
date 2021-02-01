@@ -65,13 +65,14 @@ export default {
   },
   computed: {
     bindTableColumns() {
+      // 过滤table需要显示的列(字段)
       return this.tableColumns.filter(column => column.show)
     },
     /* 这里使用了getter和setter，这样写的好处不用自己手动监听复选框的选中事件 */
     checkedTableColumns: {
       get() {
-        // 返回选中的列名
-        return this.bindTableColumns.map(column => column.prop)
+        // 返回选中的列名el-checkbox-group
+        return this.bindTableColumns.map(column => column.prop) // 这里只需要返回prop值
       },
       set(checked) {
         // 设置表格列的显示与隐藏
@@ -94,7 +95,8 @@ export default {
   deactivated() {},
   updated() {},
   destroyed() {},
-  methods: {},
+  methods: {
+  },
   filters: {}
 }
 </script>
