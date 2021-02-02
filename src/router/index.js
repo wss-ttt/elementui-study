@@ -825,6 +825,11 @@ export default new Router({
 			component: resolve => require(['@/views/test9/table.vue'], resolve)
 		},
 		{
+			path: '/test9/table3',
+			name: 'test9-table3',
+			component: resolve => require(['@/views/test9/table3.vue'], resolve)
+		},
+		{
 			path: '/swiper/index',
 			name: 'swiper-index',
 			component: resolve => require(['@/views/swiper/index.vue'], resolve)
