@@ -2,7 +2,7 @@
   <div>
     <div>
       <label>请选择表格需要展示的列：</label>
-      <el-checkbox-group v-model="checkedTableColumns">
+      <el-checkbox-group v-model="checkedBoxList">
         <el-checkbox
           v-for="column in ctrlArr"
           :key="column.prop"
@@ -13,7 +13,7 @@
     <div class="select-column">
       <el-popover placement="bottom" title width="200" trigger="click">
         <div class="content">
-          <el-checkbox-group v-model="checkedTableColumns">
+          <el-checkbox-group v-model="checkedBoxList">
             <el-checkbox
               v-for="column in ctrlArr"
               :key="column.prop"
@@ -26,7 +26,7 @@
       </el-popover>
     </div>
     <el-table ref="singleTable" :data="tableData" border>
-      <el-table-column property="date" label="日期" v-if="ctrlArr[0].show"></el-table-column>
+      <el-table-column property="date" label="日期" width="300px" v-if="ctrlArr[0].show"></el-table-column>
       <el-table-column property="name" label="姓名" v-if="ctrlArr[1].show"></el-table-column>
       <el-table-column property="address" label="地址" v-if="ctrlArr[2].show"></el-table-column>
     </el-table>
@@ -92,7 +92,7 @@ export default {
       return this.ctrlArr.filter(column => column.show)
     },
     /* 这里使用了getter和setter，这样写的好处不用自己手动监听复选框的选中事件 */
-    checkedTableColumns: {
+    checkedBoxList: {
       get() {
         return this.bindTableColumns.map(column => column.prop) // 这里只需要返回prop值
         // return ['date', 'name'] // 只会有日期 姓名会被选中
