@@ -10,6 +10,21 @@
         >{{ column.label }}</el-checkbox>
       </el-checkbox-group>
     </div>
+    <div class="select-column">
+      <el-popover placement="bottom" title width="200" trigger="click">
+        <div class="content">
+          <el-checkbox-group v-model="checkedTableColumns">
+            <el-checkbox
+              v-for="column in ctrlArr"
+              :key="column.prop"
+              :label="column.prop"
+            >{{ column.label }}</el-checkbox>
+          </el-checkbox-group>
+        </div>
+        <el-button slot="reference">列名选择</el-button>
+        <!-- <button slot="reference">列名选择</button> -->
+      </el-popover>
+    </div>
     <el-table ref="singleTable" :data="tableData" border>
       <el-table-column property="date" label="日期" v-if="ctrlArr[0].show"></el-table-column>
       <el-table-column property="name" label="姓名" v-if="ctrlArr[1].show"></el-table-column>
