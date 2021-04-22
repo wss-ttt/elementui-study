@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper">
-    <v-table :tableData="list" :tableColumns="tableColumns" @row-click="rowClick" @name-click="nameClick" @date-click="dateClick" @selection-change="selectionChange">
+    <el-button type="button" @click="handleQuery">查询</el-button>
+    <v-table :tableData="list" :tableColumns="tableColumns" @row-click="rowClick" @name-click="nameClick"
+      @date-click="dateClick" @selection-change="selectionChange" :loading="loading">
       <el-table-column slot="selection" type="selection" width="45" align="center" />
       <el-table-column slot="index" label="序号" align="center" type="index" width="100" />
       <el-table-column slot="operation" label="操作">
@@ -22,31 +24,8 @@
     props: {},
     data() {
       return {
-        list: [{
-            id: 1,
-            date: '2016-05-02',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1518 弄',
-            monitiorState: 0,
-            msg: '好好'
-          },
-          {
-            id: 2,
-            date: '2016-05-04',
-            name: '张三',
-            address: '上海市普陀区金沙江路 1517 弄',
-            monitiorState: 1,
-            msg: '好好'
-          },
-          {
-            id: 3,
-            date: '2016-05-01',
-            name: '李四',
-            address: '上海市普陀区金沙江路 1519 弄',
-            monitiorState: 2,
-            msg: '好好'
-          }
-        ],
+        loading: false,
+        list: [],
         tableColumns: [{
             prop: 'date',
             label: '日期',
@@ -73,14 +52,21 @@
             show: true,
             disabled: false
           },
+          {
+            prop: 'msg',
+            label: '备注',
+            show: true,
+            disabled: false
+          }
         ]
       }
     },
-    computed: {
-    },
+    computed: {},
     watch: {},
     created() {},
-    mounted() {},
+    mounted() {
+      this.handleQuery()
+    },
     activated() {},
     deactivated() {},
     updated() {},
@@ -96,14 +82,46 @@
         console.log('row', row)
       },
       nameClick(row) {
-       console.log('点击name', row) 
+        console.log('点击name', row)
       },
       dateClick(row) {
-       console.log('点击date', row) 
+        console.log('点击date', row)
       },
       // 复选功能
       selectionChange(selection) {
         this.ids = selection.map(item => item.id)
+      },
+      handleQuery() {
+        this.loading = true
+        // 模拟请求数据
+        setTimeout(() => {
+          this.list = [{
+              id: 1,
+              date: '2016-05-02',
+              name: '王小虎',
+              address: '上海市普陀区金沙江路 1518 弄',
+              monitiorState: 0,
+              msg: '好好'
+            },
+            {
+              id: 2,
+              date: '2016-05-04',
+              name: '张三',
+              address: '上海市普陀区金沙江路 1517 弄',
+              monitiorState: 1,
+              msg: '好好'
+            },
+            {
+              id: 3,
+              date: '2016-05-01',
+              name: '李四',
+              address: '上海市普陀区金沙江路 1519 弄',
+              monitiorState: 2,
+              msg: '好好'
+            }
+          ]
+          this.loading = false
+        }, 3000)
       }
     },
     filters: {}
