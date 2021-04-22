@@ -12,7 +12,8 @@
         <el-button slot="reference">列名选择</el-button>
       </el-popover>
     </div>
-    <el-table :data="tableData" border @row-click="tableRowClick" stripe>
+    <el-table :data="tableData" border @row-click="tableRowClick" @selection-change="selectionChange" stripe>
+      <slot name="selection"></slot>
       <slot name="index"></slot>
       <el-table-column v-for="column in bindTableColumns" align="center" :key="column.prop" :prop="column.prop"
         :label="column.label" :width="column.width">
@@ -138,6 +139,9 @@
             item.disabled = false
           })
         }
+      },
+      selectionChange(selection) {
+        this.$emit('selection-change', selection)
       }
     },
     filters: {}
