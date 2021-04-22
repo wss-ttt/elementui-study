@@ -85,6 +85,11 @@
             // 如果选中，则设置列显示
             if (checked.includes(column.prop)) {
               column.show = true
+              if(checked.length <= this.minCheckdLen) {
+                column.disabled = true
+              } else {
+                column.disabled = false
+              }
             } else {
               // 如果未选中，则设置列隐藏
               column.show = false
@@ -126,7 +131,7 @@
         this.$emit('date-click', row)
       },
       change() {
-        if (this.checkedTableColumns.length <= this.minCheckdLen) {
+        /* if (this.checkedTableColumns.length <= this.minCheckdLen) {
           this.checkedTableColumns.forEach(item => {
             this.tableColumns.forEach(jtem => {
               if (item === jtem.prop) {
@@ -138,7 +143,7 @@
           this.tableColumns.forEach(item => {
             item.disabled = false
           })
-        }
+        } */
       },
       selectionChange(selection) {
         this.$emit('selection-change', selection)
