@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
-    <v-table :tableData="list" :tableColumns="tableColumns" @row-click="rowClick" @name-click="nameClick" @date-click="dateClick">
+    <v-table :tableData="list" :tableColumns="tableColumns" @row-click="rowClick" @name-click="nameClick" @date-click="dateClick" @selection-change="selectionChange">
+      <el-table-column slot="selection" type="selection" width="45" align="center" />
       <el-table-column slot="index" label="序号" align="center" type="index" width="100" />
       <el-table-column slot="operation" label="操作">
         <template slot-scope="scope">
@@ -22,6 +23,7 @@
     data() {
       return {
         list: [{
+            id: 1,
             date: '2016-05-02',
             name: '王小虎',
             address: '上海市普陀区金沙江路 1518 弄',
@@ -29,6 +31,7 @@
             msg: '好好'
           },
           {
+            id: 2,
             date: '2016-05-04',
             name: '张三',
             address: '上海市普陀区金沙江路 1517 弄',
@@ -36,6 +39,7 @@
             msg: '好好'
           },
           {
+            id: 3,
             date: '2016-05-01',
             name: '李四',
             address: '上海市普陀区金沙江路 1519 弄',
@@ -96,6 +100,10 @@
       },
       dateClick(row) {
        console.log('点击date', row) 
+      },
+      // 复选功能
+      selectionChange(selection) {
+        this.ids = selection.map(item => item.id)
       }
     },
     filters: {}
