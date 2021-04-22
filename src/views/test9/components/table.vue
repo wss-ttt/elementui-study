@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-loading="loading" class="table">
     <div class="select-column">
       <el-popover placement="bottom" title="" width="200" trigger="click">
         <div class="content">
@@ -42,6 +42,10 @@
   export default {
     components: {},
     props: {
+      loading: {
+        type: Boolean,
+        default: false
+      },
       tableData: {
         type: Array,
         default: () => []
