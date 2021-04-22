@@ -16,10 +16,13 @@ import 'swiper/css/swiper.css'    //在全局没引入，这里记得要！
 Vue.use(VueAwesomeSwiper, /* { default options with global component } */)
 // vue-awesome-swiper插件全局引入 -- 结束
 import './global2'
+import globalData from './global.js'
 import './utils/directives.js'
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 Vue.prototype.$ajax = axios
+
+Vue.prototype.$global = globalData
 
 
 // 定义全局的filter
