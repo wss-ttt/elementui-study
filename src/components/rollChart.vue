@@ -29,6 +29,11 @@
       autoResize: {
         type: Boolean,
         default: true
+      },
+      // 默认间隔时间为 2000毫秒 = 2s
+      interval: {
+        type: Number,
+        default: 2000
       }
     },
     data() {
@@ -120,7 +125,7 @@
         this.myChart.clear()
         this.myChart.setOption(this.option)
         // 开启自动滚动展示模式
-        this.timer = setInterval(this.autoPlay, 2000)
+        this.timer = setInterval(this.autoPlay, this.interval)
       },
       // 静态展示
       initStaticChart() {
