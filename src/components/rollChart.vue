@@ -94,12 +94,25 @@
           // 获取图表配置数据
           this.option = option
           // 获取到series中的data数据
-          this.isArray = Object.prototype.toString.call(option.series) === '[object Array]' || false
-          const seriesData = this.isArray ? option.series[0]['data'] : option.series['data']
-          // 获取数据的长度
-          this.dataLen = seriesData.length
+          const series = option.series
+          this.isArray = Object.prototype.toString.call(series) === '[object Array]' || false
+          let seriesData = null
+          if (this.isArray) {
+            seriesData = []
+            // 如果是数组 -> 可能有多个series
+            series.forEach(item => {
+              seriesData.push(item.data)
+            })
+            // 获取数据的长度
+            this.dataLen = seriesData[0].length
+          } else {
+            // 如果不是数组 -> 说明只有一个series
+            seriesData = series['data']
+            // 获取数据的长度
+            this.dataLen = seriesData.length
+          }
           // 5.数据的长度大于要显示的长度 -> 此时就需要滚动展示
-          if(seriesData.length > this.showLen) {
+          if (this.dataLen > this.showLen) {
             // 6.滚动展示
             this.initRollChart(seriesData)
           } else {
@@ -118,10 +131,28 @@
       },
       // 滚动展示(需要把数据复制一份)
       initRollChart(seriesData) {
-        // 这个时候需要把数据复制一份
-        this.newSeriesData = seriesData.concat(seriesData)
-        const data = this.newSeriesData.slice(this.start, this.end)
-        this.isArray ? this.option.series[0]['data'] = data : this.option.series['data'] = data
+        if (this.isArray) {
+          // 清空操作 注意: 这个地方必须要清空操作 因为后面有push操作, 否则在切换的过程中会一直push数据, 就会存在问题
+          this.newSeriesData = []
+          // 如果是数组 -> 有可能是多个series
+          seriesData.forEach(item => {
+            // 这个时候需要把数据复制一份
+            this.newSeriesData.push(item.concat(item))
+          })
+          // 循环对每一个series中的截取赋值
+          this.newSeriesData.forEach((item, index) => {
+            let data = item.slice(this.start, this.end)
+            // 这里使用索引 -> series[index]['data']
+            this.option.series[index]['data'] = data
+          })
+        } else {
+          // 如果不是数组 -> 说明只有一个series
+          // 这个时候需要把数据复制一份
+          this.newSeriesData = seriesData.concat(seriesData)
+          let data = this.newSeriesData.slice(this.start, this.end)
+          // 这里直接使用 series['data']
+          this.option.series['data'] = data
+        }
         this.myChart.clear()
         this.myChart.setOption(this.option)
         // 开启自动滚动展示模式
@@ -136,12 +167,23 @@
       autoPlay() {
         this.start++
         this.end++
-        if(this.start === this.dataLen) {
+        if (this.start === this.dataLen) {
           this.start = 0
           this.end = this.showLen
         }
-        const data = this.newSeriesData.slice(this.start, this.end)
-        this.isArray ? this.option.series[0]['data'] = data : this.option.series['data'] = data
+        if (this.isArray) {
+          // 如果是数组 -> 有可能是多个series
+          this.newSeriesData.forEach((item, index) => {
+            const data = item.slice(this.start, this.end)
+            // 这里使用索引 -> series[index]['data']
+            this.option.series[index]['data'] = data
+          })
+        } else {
+          // 如果不是数组 -> 说明只有一个series
+          const data = this.newSeriesData.slice(this.start, this.end)
+          // 这里直接使用 series['data']
+          this.option.series['data'] = data
+        }
         // this.myChart.clear() // 滚动展示不需要该代码 否则效果上看不出是滚动效果 而是瞬间变化的效果
         this.myChart.setOption(this.option)
       },
@@ -179,4 +221,5 @@
   .roll-chart {
     position: relative;
   }
+
 </style>
