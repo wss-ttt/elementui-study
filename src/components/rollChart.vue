@@ -220,7 +220,7 @@
       // 静态时高亮显示
       handleStaticHighlight() {
         this.$emit('roll', {
-          index: this.start
+          index: this.index
         })
         this.myChart.dispatchAction({
           type: 'downplay', // 取消高亮
