@@ -9,7 +9,7 @@
       当前名称: {{ xData[currentIndex] }}
     </div>
     <div class="box">
-      <roll-chart ref="rollChart" :showLen="5" width="100%" height="100%" @roll="roll" />
+      <roll-chart ref="rollChart" :showLen="5" width="100%" height="100%" @roll="roll" highlight />
     </div>
   </div>
 </template>
@@ -32,7 +32,7 @@
     watch: {},
     created() {},
     mounted() {
-      this.handleQuery(7)
+      this.handleQuery(5)
     },
     activated() {},
     deactivated() {},
@@ -52,6 +52,7 @@
         // 组装echarts数据
         const seriesData = []
         const seriesData2 = []
+        this.xData = []
         res.forEach(item => {
           seriesData.push({
             value: [item.name, item.math]
