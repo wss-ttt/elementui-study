@@ -230,7 +230,7 @@
           dataIndex: this.index
         })
         this.index++
-        if(this.index === Math.min(this.dataLen, this.showLen)) {
+        if(this.index === this.showLen) {
           this.index = 0
         }
       },
