@@ -33,7 +33,12 @@
       // 默认间隔时间为 2000毫秒 = 2s
       interval: {
         type: Number,
-        default: 2000
+        default: 1000
+      },
+      // 是否需要高亮
+      highlight: {
+        type: Boolean,
+        default:false
       }
     },
     data() {
@@ -48,7 +53,9 @@
         end: this.showLen,
         option: {},
         timer: null,
-        isArray: false // series是否是数组 
+        highlightTimer: null,
+        isArray: false, // series是否是数组 
+        index: 0
       }
     },
     computed: {},
@@ -80,9 +87,13 @@
         // 1.重置操作
         // 清除定时器(切换过程中,会不断产生定时器)
         clearInterval(this.timer)
+        // 清除高亮的定时器
+        clearInterval(this.highlightTimer)
         // 重置 start和end值(否则有问题)
         this.start = 0
         this.end = this.showLen
+        // index 重置到0(否则在tab切换过程的中没有从0开始)
+        this.index = 0
         // 2.判断myChart实例是否存在,不存在的话重新实例化
         if (!this.myChart) {
           this.myChart = echarts.init(this.oBox)
@@ -115,9 +126,16 @@
           if (this.dataLen > this.showLen) {
             // 6.滚动展示
             this.initRollChart(seriesData)
+            // 高亮显示
+            this.highlight && this.handleRollHighlight()
           } else {
             // 7.静态展示
             this.initStaticChart()
+            // 高亮显示
+            if(this.highlight) {
+              this.handleStaticHighlight()
+              this.highlightTimer = setInterval(this.handleStaticHighlight, this.interval)
+            }
           }
           window.addEventListener('resize', this.chartResize)
         } else {
@@ -156,7 +174,11 @@
         this.myChart.clear()
         this.myChart.setOption(this.option)
         // 开启自动滚动展示模式
-        this.timer = setInterval(this.autoPlay, this.interval)
+        this.timer = setInterval( () => {
+          this.autoPlay()
+          // 高亮(共用一个定时器)
+          this.highlight && this.handleRollHighlight()
+        }, this.interval)
       },
       // 静态展示
       initStaticChart() {
@@ -186,6 +208,47 @@
         }
         // this.myChart.clear() // 滚动展示不需要该代码 否则效果上看不出是滚动效果 而是瞬间变化的效果
         this.myChart.setOption(this.option)
+      },
+      // 静态时高亮显示
+      handleStaticHighlight() {
+        this.myChart.dispatchAction({
+          type: 'downplay', // 取消高亮
+        })
+        this.myChart.dispatchAction({
+          type: 'highlight', // 高亮
+          dataIndex: this.index
+        })
+        this.index++
+        if(this.index === Math.min(this.dataLen, this.showLen)) {
+          this.index = 0
+        }
+      },
+      // 滚动时高亮显示
+      handleRollHighlight() {
+        if(this.isArray) {
+          // 如果是数组 -> 有可能是多个series
+          this.newSeriesData.forEach((item, index) => {
+            // 如果不是数组 -> 说明只有一个series
+            this.myChart.dispatchAction({
+              type: 'downplay', // 取消高亮
+              seriesIndex: index
+            })
+            this.myChart.dispatchAction({
+              type: 'highlight', // 高亮
+              seriesIndex: index,
+              dataIndex: 0
+            })
+          })
+        } else {
+            // 如果不是数组 -> 说明只有一个series
+            this.myChart.dispatchAction({
+              type: 'downplay', // 取消高亮
+            })
+            this.myChart.dispatchAction({
+              type: 'highlight', // 高亮
+              dataIndex: 0
+            })
+        }
       },
       isEmptyObject(obj) {
         return Object.keys(obj).length === 0
