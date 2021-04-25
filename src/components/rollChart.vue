@@ -33,7 +33,7 @@
       // 默认间隔时间为 2000毫秒 = 2s
       interval: {
         type: Number,
-        default: 1000
+        default: 2000
       },
       // 是否需要高亮
       highlight: {
@@ -173,6 +173,11 @@
         }
         this.myChart.clear()
         this.myChart.setOption(this.option)
+
+        this.$emit('roll', {
+          index: this.start
+        })
+
         // 开启自动滚动展示模式
         this.timer = setInterval( () => {
           this.autoPlay()
@@ -208,9 +213,15 @@
         }
         // this.myChart.clear() // 滚动展示不需要该代码 否则效果上看不出是滚动效果 而是瞬间变化的效果
         this.myChart.setOption(this.option)
+        this.$emit('roll', {
+          index: this.start
+        })
       },
       // 静态时高亮显示
       handleStaticHighlight() {
+        this.$emit('roll', {
+          index: this.start
+        })
         this.myChart.dispatchAction({
           type: 'downplay', // 取消高亮
         })
