@@ -845,6 +845,16 @@ export default new Router({
 			component: resolve => require(['@/views/test9/rollChartPage.vue'], resolve)
 		},
 		{
+			path: '/test9/queryPage',
+			name: 'test9-queryPage',
+			component: resolve => require(['@/views/test9/queryPage.vue'], resolve)
+		},
+		{
+			path: '/test9/sass',
+			name: 'test9-sass',
+			component: resolve => require(['@/views/test9/sass.vue'], resolve)
+		},
+		{
 			path: '/swiper/index',
 			name: 'swiper-index',
 			component: resolve => require(['@/views/swiper/index.vue'], resolve)
