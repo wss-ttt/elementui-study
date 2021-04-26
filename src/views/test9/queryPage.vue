@@ -1,7 +1,5 @@
 <template>
   <div class="wrapper">
-    <h1 style="text-align: center;color: aliceblue">圆形导航菜单特效 </h1>
-    <div class="box">aa</div>
     <div class="demo">
       <div class="container">
         <div class="row">
@@ -49,30 +47,12 @@
 
 </script>
 <style scoped lang="scss">
-  // 分支判断
-  $big: true; // 定义变量
-  $theme: 'black';
-  .box {
-    width: 200px;
-    height: 200px;
-    color: red;
-    @if $big {
-      font-size: 30px;
-    } @else {
-      font-size: 20px;
-    }
-    @if $theme == 'black' {
-      background: black;
-    } @else {
-      background: #fff;
-    }
-  }
-
   .wrapper {
     width: 100%;
     height: 100%;
     background-color: #262626
   }
+
   .demo {
     padding: 2em 0;
     transform: translate3d(0, 0, 0);
@@ -150,7 +130,20 @@
     color: #fff;
   }
 
-  .navbar:hover .menu li:nth-child(1) {
+  // 使用for循环
+  @for $i from 1 through 9 {
+    .navbar:hover .menu li:nth-child(#{$i}) {
+      transition-delay: 0.02s * $i;
+      transform: rotate(85deg + ($i - 1) * 40);
+    }
+
+    .navbar:hover .menu li:nth-child(#{$i}) a {
+      transition-delay: 0.04s * $i;
+      transform: rotate(635deg - ($i - 1) * 40);
+    }
+  }
+
+  /* .navbar:hover .menu li:nth-child(1) {
     transition-delay: 0.02s;
     transform: rotate(85deg);
   }
@@ -238,6 +231,6 @@
   .navbar:hover .menu li:nth-child(9) a {
     transition-delay: 0.36s;
     transform: rotate(315deg);
-  }
+  } */
 
 </style>
