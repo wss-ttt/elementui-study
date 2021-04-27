@@ -5,11 +5,7 @@
         <div class="item-inner">
           <div class="item-loader-container">
             <div class="la-line-scale la-2x">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
+              <div v-for="i in 5" :key="'line-scale' + i"></div>
             </div>
           </div>
         </div>
@@ -19,18 +15,21 @@
         <div class="item-inner">
           <div class="item-loader-container">
             <div class="la-line-scale-party la-2x">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
+              <div v-for="i in 5" :key="'line-scale-party' + i"></div>
             </div>
           </div>
         </div>
         <div class="item-title"><a href="#">Line Scale Party<span>→</span></a></div>
       </el-col>
-      <el-col :span="6">
-        aaa
+      <el-col :span="6" class="item">
+        <div class="item-inner">
+          <div class="item-loader-container">
+            <div class="la-ball-grid-pulse la-2x">
+              <div v-for="i in 9" :key="'ball-grid-pulse' + i"></div>
+            </div>
+          </div>
+        </div>
+        <div class="item-title"><a href="#">Ball Grid Pulse<span>→</span></a></div>
       </el-col>
       <el-col :span="6">
         aaa
@@ -226,6 +225,75 @@
     }
   }
 
+  .la-ball-grid-pulse {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 36px;
+    height: 36px;
+
+    &.la-2x {
+      width: 72px;
+      height: 72px;
+    }
+
+    >div {
+      width: calc((100% - 13px) / 3);
+      height: calc((100% - 13px) / 3);
+      border-radius: 50%;
+      background-color: #fff;
+      animation-name: ball-grid-pulse;
+      animation-iteration-count: infinite;
+
+      &:nth-child(1) {
+        animation-duration: .65s;
+        animation-delay: .03s;
+      }
+
+      &:nth-child(2) {
+        animation-duration: 1.02s;
+        animation-delay: .09s;
+      }
+
+      &:nth-child(3) {
+        animation-duration: 1.06s;
+        animation-delay: -.69s;
+      }
+
+      &:nth-child(4) {
+        animation-duration: 1.5s;
+        animation-delay: -.41s;
+      }
+
+      &:nth-child(5) {
+        animation-duration: 1.6s;
+        animation-delay: .04s;
+      }
+
+      &:nth-child(6) {
+        animation-duration: .84s;
+        animation-delay: .07s;
+      }
+
+      &:nth-child(7) {
+        animation-duration: .68s;
+        animation-delay: -.66s;
+      }
+
+      &:nth-child(8) {
+        animation-duration: .93s;
+        animation-delay: -.76s;
+      }
+
+      &:nth-child(9) {
+        animation-duration: 1.24s;
+        animation-delay: -.76s;
+      }
+    }
+  }
+
+
+
   @keyframes line-scale {
 
     0%,
@@ -251,6 +319,23 @@
 
     100% {
       transform: scaleY(1);
+    }
+  }
+
+  @keyframes ball-grid-pulse {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: .35;
+      transform: scale(0.45);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
     }
   }
 
