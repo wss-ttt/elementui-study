@@ -51,9 +51,15 @@
 
 </script>
 <style scoped lang="scss">
+  @mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .wrapper {
     height: 100%;
-    background: #333;
+    background-color: rgb(152, 191, 246);
     color: #fff;
   }
 
@@ -63,8 +69,8 @@
   }
 
   .la-line-scale {
-    display: block;
-    font-size: 0;
+    @include center();
+    border: 1px solid red;
     color: #fff;
     width: 40px;
     height: 32px;
@@ -77,11 +83,6 @@
         width: 8px;
         height: 64px;
         margin: 4px;
-        margin-top: 0;
-        margin-bottom: 0;
-        background-color: #fff;
-        display: inline-block;
-        animation: line-scale 1.2s infinite ease;
       }
     }
 
@@ -89,10 +90,7 @@
       width: 4px;
       height: 32px;
       margin: 2px;
-      margin-top: 0;
-      margin-bottom: 0;
       background-color: #fff;
-      display: inline-block;
       animation: line-scale 1.2s infinite ease;
     }
 
@@ -108,17 +106,24 @@
 
   .item {
     height: 200px;
-    border: 1px solid #fff;
     position: relative;
     cursor: pointer;
+    transition: all 250ms linear;
 
     .item-inner {
+      border: 1px solid red;
       position: relative;
       display: flex;
       width: 100%;
       height: 100%;
       justify-content: center;
       align-items: center;
+
+      .item-loader-container {
+        div {
+          animation-play-state: paused; // 暂停动画
+        }
+      }
     }
 
     .item-title {
@@ -129,6 +134,7 @@
       font-size: 16px;
       line-height: 1em;
       text-align: center;
+      padding: 10px 5px;
 
       a {
         span {
@@ -144,6 +150,18 @@
           span {
             opacity: 1;
             transform: translateX(5px);
+          }
+        }
+      }
+    }
+
+    &:hover {
+      box-shadow: inset 0 0 0 2px rgba(0, 0, 0, .3);
+
+      .item-inner {
+        .item-loader-container {
+          div {
+            animation-play-state: running; // 开启动画
           }
         }
       }
