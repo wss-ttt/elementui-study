@@ -855,6 +855,16 @@ export default new Router({
 			component: resolve => require(['@/views/test9/sass.vue'], resolve)
 		},
 		{
+			path: '/test9/dragPage',
+			name: 'test9-dragPage',
+			component: resolve => require(['@/views/test9/dragPage.vue'], resolve)
+		},
+		{
+			path: '/test9/loading',
+			name: 'test9-loading',
+			component: resolve => require(['@/views/test9/loading.vue'], resolve)
+		},
+		{
 			path: '/swiper/index',
 			name: 'swiper-index',
 			component: resolve => require(['@/views/swiper/index.vue'], resolve)
