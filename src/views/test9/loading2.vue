@@ -31,8 +31,15 @@
         </div>
         <div class="item-title"><a href="#">Ball Grid Pulse<span>→</span></a></div>
       </el-col>
-      <el-col :span="6">
-        aaa
+      <el-col :span="6" class="item">
+        <div class="item-inner">
+          <div class="item-loader-container">
+            <div class="la-ball-newton-cradle la-2x">
+              <div v-for="i in 4" :key="'ball-newton-cradle' + i"></div>
+            </div>
+          </div>
+        </div>
+        <div class="item-title"><a href="#">Ball Newton Cradle<span>→</span></a></div>
       </el-col>
     </el-row>
   </div>
@@ -292,6 +299,34 @@
     }
   }
 
+  .la-ball-newton-cradle {
+    @include center();
+    width: 40px;
+    height: 10px;
+
+    &.la-2x {
+      width: 80px;
+      height: 20px;
+    }
+
+    >div {
+      width: calc(100% / 4);
+      height: 100%;
+      border-radius: 50%;
+      background-color: #fff;
+
+      &:first-child {
+        transform: translateX(0%);
+        animation: ball-newton-cradle-left 1s 0s ease-out infinite;
+      }
+
+      &:last-child {
+        transform: translateX(0%);
+        animation: ball-newton-cradle-right 1s 0s ease-out infinite;
+      }
+    }
+  }
+
 
 
   @keyframes line-scale {
@@ -336,6 +371,32 @@
     100% {
       opacity: 1;
       transform: scale(1);
+    }
+  }
+
+  @keyframes ball-newton-cradle-left {
+    25% {
+      transform: translateX(-100%);
+      animation-timing-function: ease-in;
+    }
+
+    50% {
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes ball-newton-cradle-right {
+    50% {
+      transform: translateX(0%);
+    }
+
+    75% {
+      transform: translateX(100%);
+      animation-timing-function: ease-in;
+    }
+
+    100% {
+      transform: translateX(0%);
     }
   }
 
