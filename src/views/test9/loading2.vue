@@ -153,15 +153,15 @@
       height: 64px;
 
       >div {
-        width: 8px;
-        height: 64px;
+        width: calc(100% / 5);
+        height: 100%;
         margin: 4px;
       }
     }
 
     >div {
-      width: 4px;
-      height: 32px;
+      width: calc(100% / 5);
+      height: 100%;
       margin: 2px;
       background-color: #fff;
       animation: line-scale 1.2s infinite ease;
@@ -185,15 +185,15 @@
       height: 64px;
 
       >div {
-        width: 8px;
-        height: 64px;
+        width: calc(100% / 5);
+        height: 100%;
         margin: 4px;
       }
     }
 
     >div {
-      width: 4px;
-      height: 32px;
+      width: calc(100% / 5);
+      height: 100%;
       margin: 2px;
       background-color: #fff;
       animation: line-scale-party 1.2s infinite ease;
