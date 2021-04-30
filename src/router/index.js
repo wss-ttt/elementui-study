@@ -865,6 +865,11 @@ export default new Router({
 			component: resolve => require(['@/views/test9/loading.vue'], resolve)
 		},
 		{
+			path: '/test9/table5',
+			name: 'test9-table5',
+			component: resolve => require(['@/views/test9/table5.vue'], resolve)
+		},
+		{
 			path: '/test9/loading2',
 			name: 'test9-loading2',
 			component: resolve => require(['@/views/test9/loading2.vue'], resolve)
