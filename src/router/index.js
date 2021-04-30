@@ -924,6 +924,11 @@ export default new Router({
 			path: '/001-动效/002',
 			name: '001-动效-0022',
 			component: resolve => require(['@/views/001-动效/002.vue'], resolve)
+		},
+		{
+			path: '/001-动效/003-canvas',
+			name: '001-动效-003-canvas',
+			component: resolve => require(['@/views/001-动效/003-canvas.vue'], resolve)
 		}
 	]
 })
