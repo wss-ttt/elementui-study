@@ -41,7 +41,8 @@
           id: '2',
           name: '李四',
           sequene: 'C相'
-        }]
+        }],
+        colspan: ['id', 'name']
       }
     },
     computed: {},
@@ -59,7 +60,22 @@
         rowIndex,
         columnIndex
       }) {
-        if (columnIndex === 1 || columnIndex === 0) {
+        // if (columnIndex === 1 || columnIndex === 0) {
+        /* if (column['property'] === 'id' || column['property'] === 'name') {
+          if (rowIndex % 3 === 0) { // 
+            return {
+              rowspan: 3,
+              colspan: 1
+            };
+          } else {
+            return {
+              rowspan: 0,
+              colspan: 0
+            };
+          }
+        } */
+
+        if (this.colspan.includes(column['property'])) {
           if (rowIndex % 3 === 0) { // 
             return {
               rowspan: 3,
