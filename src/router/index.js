@@ -913,6 +913,17 @@ export default new Router({
 			path: '/drawer/index',
 			name: 'drawer-index',
 			component: resolve => require(['@/views/drawer/index.vue'], resolve)
+		},
+		// 0001-动效文件夹
+		{
+			path: '/001-动效/001',
+			name: '001-动效-001',
+			component: resolve => require(['@/views/001-动效/001.vue'], resolve)
+		},
+		{
+			path: '/001-动效/002',
+			name: '001-动效-0022',
+			component: resolve => require(['@/views/001-动效/002.vue'], resolve)
 		}
 	]
 })
