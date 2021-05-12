@@ -41,19 +41,63 @@
           id: '2',
           name: '李四',
           sequene: 'C相'
+        }, {
+          id: '3',
+          name: '王五',
+          sequene: 'A相'
+        }, {
+          id: '3',
+          name: '王五',
+          sequene: 'B相'
+        }, {
+          id: '4',
+          name: '杨过',
+          sequene: 'A相'
+        }, {
+          id: '4',
+          name: '杨过',
+          sequene: 'B相'
+        }, {
+          id: '4',
+          name: '杨过',
+          sequene: 'C相'
         }],
-        colspan: ['id', 'name']
+        colspan: ['id', 'name'],
+        spanArr: [],
+        position: 0
       }
     },
     computed: {},
     watch: {},
     created() {},
-    mounted() {},
+    mounted() {
+      this.rowspan()
+    },
     activated() {},
     deactivated() {},
     updated() {},
     destroyed() {},
     methods: {
+      rowspan() {
+        //每次调用清空数据
+        this.spanArr = [];
+        this.position = 0
+        this.tableData.forEach((item, index) => {
+          if (index === 0) {
+            this.spanArr.push(1);
+            this.position = 0;
+          } else {
+            // id 为需要合并查询的项
+            if (this.tableData[index].id === this.tableData[index - 1].id) {
+              this.spanArr[this.position] += 1;
+              this.spanArr.push(0);
+            } else {
+              this.spanArr.push(1);
+              this.position = index;
+            }
+          }
+        })
+      },
       objectSpanMethod({
         row,
         column,
@@ -75,7 +119,8 @@
           }
         } */
 
-        if (this.colspan.includes(column['property'])) {
+        // 这种是每3行进行合并, 必须要求数据3行一组
+        /* if (this.colspan.includes(column['property'])) {
           if (rowIndex % 3 === 0) { // 
             return {
               rowspan: 3,
@@ -86,6 +131,14 @@
               rowspan: 0,
               colspan: 0
             };
+          }
+        } */
+        if (this.colspan.includes(column['property'])) {
+          const _row = this.spanArr[rowIndex];
+          const _col = _row > 0 ? 1 : 0;
+          return {
+            rowspan: _row,
+            colspan: _col
           }
         }
       }
