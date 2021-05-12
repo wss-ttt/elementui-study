@@ -17,51 +17,7 @@
     props: {},
     data() {
       return {
-        tableData: [{
-          id: '1',
-          name: '张三',
-          sequene: 'A相'
-        }, {
-          id: '1',
-          name: '张三',
-          sequene: 'B相'
-        }, {
-          id: '1',
-          name: '张三',
-          sequene: 'C相'
-        }, {
-          id: '2',
-          name: '李四',
-          sequene: 'A相'
-        }, {
-          id: '2',
-          name: '李四',
-          sequene: 'B相'
-        }, {
-          id: '2',
-          name: '李四',
-          sequene: 'C相'
-        }, {
-          id: '3',
-          name: '王五',
-          sequene: 'A相'
-        }, {
-          id: '3',
-          name: '王五',
-          sequene: 'B相'
-        }, {
-          id: '4',
-          name: '杨过',
-          sequene: 'A相'
-        }, {
-          id: '4',
-          name: '杨过',
-          sequene: 'B相'
-        }, {
-          id: '4',
-          name: '杨过',
-          sequene: 'C相'
-        }],
+        tableData: [],
         colspan: ['id', 'name'],
         spanArr: [],
         position: 0
@@ -70,7 +26,8 @@
     computed: {},
     watch: {},
     created() {},
-    mounted() {
+    async mounted() {
+      await this.getList()
       this.rowspan()
     },
     activated() {},
@@ -78,6 +35,58 @@
     updated() {},
     destroyed() {},
     methods: {
+      getList() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            this.tableData = [{
+              id: '1',
+              name: '张三',
+              sequene: 'A相'
+            }, {
+              id: '1',
+              name: '张三',
+              sequene: 'B相'
+            }, {
+              id: '1',
+              name: '张三',
+              sequene: 'C相'
+            }, {
+              id: '2',
+              name: '李四',
+              sequene: 'A相'
+            }, {
+              id: '2',
+              name: '李四',
+              sequene: 'B相'
+            }, {
+              id: '2',
+              name: '李四',
+              sequene: 'C相'
+            }, {
+              id: '3',
+              name: '王五',
+              sequene: 'A相'
+            }, {
+              id: '3',
+              name: '王五',
+              sequene: 'B相'
+            }, {
+              id: '4',
+              name: '杨过',
+              sequene: 'A相'
+            }, {
+              id: '4',
+              name: '杨过',
+              sequene: 'B相'
+            }, {
+              id: '4',
+              name: '杨过',
+              sequene: 'C相'
+            }]
+            resolve()
+          }, 1000)
+        })
+      },
       rowspan() {
         //每次调用清空数据
         this.spanArr = [];
