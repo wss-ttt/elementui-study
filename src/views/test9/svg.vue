@@ -1,31 +1,6 @@
 <template>
   <div class="wrapper">
-     <!-- v-html="svgHtml" -->
-    <div class="box" v-html="svgHtml">
-      <!-- <svg id="互感器组" xmlns="http://www.w3.org/2000/svg" width="1890" height="1417" viewBox="0 0 1890 1417">
-        <defs>
-          <svg:style type="text/css">
-            .cls-1 {
-              fill: none;
-              stroke: #00a0e9;
-              stroke-width: 4px;
-            }
-          </svg:style>
-        </defs>
-        <g id="组1" class="transformer">
-          <circle id="circle2" class="cls-1" cx="770" cy="331" r="30" />
-          <circle id="circle1" class="cls-1" cx="790" cy="353" r="30" />
-          <circle id="circle3" class="cls-1" cx="754" cy="355" r="30" />
-        </g>
-        <g id="组2" class="transformer">
-          <circle id="circle2-2" data-name="circle2" class="cls-1" cx="902" cy="333" r="30" />
-          <circle id="circle1-2" data-name="circle1" class="cls-1" cx="922" cy="355" r="30" />
-          <circle id="circle3-2" data-name="circle3" class="cls-1" cx="886" cy="357" r="30" />
-        </g>
-      </svg> -->
-    </div>
-    <div class="main" v-html="testHtml">
-    </div>
+    <div class="box" v-html="svgHtml"></div>
   </div>
 </template>
 
@@ -102,28 +77,40 @@
             "val": -1.903,
             "status": 2
           }]
+        }, {
+          "positionId": 5,
+          "positionNum": 1,
+          "positionName": "220kV 一母",
+          "isBus": 1,
+          "transformerId": 13,
+          "phaseSequence": "A",
+          "monitiorState": 0,
+          "ratioDifferenceAverage": 0.024,
+          "measuringTime": "2020-07-10 00:00:00",
+          "adata": {
+            "val": 0.024,
+            "status": 0
+          },
+          "bdata": {
+            "val": 0.065,
+            "status": 0
+          },
+          "cdata": {
+            "val": 0.096,
+            "status": 0
+          },
+          "datas": [{
+            "val": 0.024,
+            "status": 0
+          }, {
+            "val": 0.065,
+            "status": 0
+          }, {
+            "val": 0.096,
+            "status": 0
+          }]
         }],
-        svgHtml: `<svg id="互感器组" xmlns="http://www.w3.org/2000/svg" width="1890" height="1417" viewBox="0 0 1890 1417">
-          <defs>
-            <svg:style type="text/css">
-              .cls-1 {
-                fill: none;
-                stroke: #00a0e9;
-                stroke-width: 4px;
-              }
-            </svg:style>
-          </defs>
-          <g id="组1" class="transformer">
-            <circle id="circle2" class="cls-1" cx="770" cy="331" r="30"/>
-            <circle id="circle1" class="cls-1" cx="790" cy="353" r="30"/>
-            <circle id="circle3" class="cls-1" cx="754" cy="355" r="30"/>
-          </g>
-          <g id="组2" class="transformer">
-            <circle id="circle2-2" data-name="circle2" class="cls-1" cx="902" cy="333" r="30"/>
-            <circle id="circle1-2" data-name="circle1" class="cls-1" cx="922" cy="355" r="30"/>
-            <circle id="circle3-2" data-name="circle3" class="cls-1" cx="886" cy="357" r="30"/>
-          </g>
-        </svg>`,
+        svgHtml: '',
         classType: ['normal', 'warning', 'abnormal'],
         aniType: ['normalAni', 'warningAni', 'abnormalAni'],
         testHtml: '<div class="red">好好学习</div>'
@@ -132,31 +119,93 @@
     computed: {},
     watch: {},
     created() {},
-    mounted() {
+    async mounted() {
+      await this.getSvgHtml()
       const vm = this
-      this.$nextTick(() => {
-        const trans = document.querySelectorAll('.transformer')
-        this.list.forEach((item, index) => {
-          let datas = item.datas
-          datas.forEach((item, jndex) => {
-            // 原生js写法
-            trans[index].children[jndex].classList.add(this.classType[item['status']])
-          })
+      const transGroup = document.querySelector('#transformer')
+      const trans = transGroup.querySelectorAll('g')
+      this.list.forEach((item, index) => {
+        let datas = item.datas
+        datas.forEach((item, jndex) => {
+          // 原生js写法
+          trans[index].children[jndex].classList.add(this.classType[item['status']])
         })
-
-        // 添加单机事件
-        for (let i = 0; i < trans.length; i++) {
-          trans[i].onclick = function () {
-            vm.showPicture(vm.list[i]['positionId'], vm.list[i]['positionNum'], vm.list[i]['positionName'], i)
-          }
-        }
       })
+
+      // 添加单机事件
+      for (let i = 0; i < trans.length; i++) {
+        trans[i].onclick = function () {
+          vm.showPicture(vm.list[i]['positionId'], vm.list[i]['positionNum'], vm.list[i]['positionName'], i)
+        }
+      }
     },
     activated() {},
     deactivated() {},
     updated() {},
     destroyed() {},
     methods: {
+      getSvgHtml() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            this.svgHtml = `<svg id="互感器组" xmlns="http://www.w3.org/2000/svg"   xmlns:xlink="http://www.w3.org/1999/xlink" width="1890"
+              height="1417" viewBox="0 0 1890 1417">
+              <defs>
+                <style>
+                  .cls-1,
+                  .cls-2 {
+                  fill: none;
+                  }
+
+                  .cls-1 {
+                  stroke: #00a0e9;
+                  stroke-width: 4px;
+                  }
+
+                  .cls-2 {
+                  stroke: #fff100;
+                  stroke-width: 2px;
+                  }
+
+                  .cls-3,
+                  .cls-4 {
+                  font-size: 50px;
+                  }
+
+                  .cls-4 {
+                  font-family: "Adobe Heiti Std";
+                  }
+
+                </style>
+                <path id="text-path" d="M107.52,92.64l56.88-18" />
+              </defs>
+              <g id="transformer">
+                <g id="组1">
+                  <circle id="椭圆_3" data-name="椭圆 3" class="cls-1" cx="509" cy="526" r="30" />
+                  <circle id="椭圆_2" data-name="椭圆 2" class="cls-1" cx="527" cy="556" r="30" />
+                  <circle id="椭圆_1" data-name="椭圆 1" class="cls-1" cx="487" cy="554" r="30" />
+                </g>
+                <g id="组2">
+                  <circle id="椭圆_3-2" data-name="椭圆 3" class="cls-1" cx="642" cy="526" r="30" />
+                  <circle id="椭圆_2-2" data-name="椭圆 2" class="cls-1" cx="660" cy="556" r="30" />
+                  <circle id="椭圆_1-2" data-name="椭圆 1" class="cls-1" cx="620" cy="554" r="30" />
+                </g>
+                <g id="组3">
+                  <circle id="椭圆_3-3" data-name="椭圆 3" class="cls-1" cx="767" cy="525" r="30" />
+                  <circle id="椭圆_2-3" data-name="椭圆 2" class="cls-1" cx="785" cy="555" r="30" />
+                  <circle id="椭圆_1-3" data-name="椭圆 1" class="cls-1" cx="745" cy="553" r="30" />
+                </g>
+              </g>
+              <rect id="主变1" class="cls-2" x="448" y="311" width="237" height="75" />
+              <text class="cls-3">
+                <textPath xlink:href="#text-path">
+                  <tspan class="cls-4">湖边</tspan>
+                </textPath>
+              </text>
+            </svg>`
+            resolve()
+          }, 1000)
+        })
+      },
       showPicture(positionId, positionNum, positionName, index) {
         console.log(positionId, positionNum, positionName, index)
       }
@@ -181,16 +230,18 @@
     width: 100%;
     height: 100%;
 
-    .transformer {
-      cursor: pointer;
+    #transformer {
+      >g {
+        cursor: pointer;
 
-      circle {
-        fill: transparent;
-        /*转换成透明色*/
-        stroke-width: 4;
-        stroke: #03C1FF;
-        /* animation: shink 1s infinite ease-in-out; */
-        animation: normalAni 1s linear infinite alternate;
+        >circle {
+          fill: transparent;
+          /*转换成透明色*/
+          stroke-width: 4;
+          stroke: #03C1FF;
+          /* animation: shink 1s infinite ease-in-out; */
+          animation: normalAni 1s linear infinite alternate;
+        }
       }
     }
   }
