@@ -1,13 +1,23 @@
 <template>
   <div class="wrapper">
+     <!-- v-html="svgHtml" -->
     <div class="box" v-html="svgHtml">
       <!-- <svg id="互感器组" xmlns="http://www.w3.org/2000/svg" width="1890" height="1417" viewBox="0 0 1890 1417">
-        <g id="组2" class="transformer">
+        <defs>
+          <svg:style type="text/css">
+            .cls-1 {
+              fill: none;
+              stroke: #00a0e9;
+              stroke-width: 4px;
+            }
+          </svg:style>
+        </defs>
+        <g id="组1" class="transformer">
           <circle id="circle2" class="cls-1" cx="770" cy="331" r="30" />
           <circle id="circle1" class="cls-1" cx="790" cy="353" r="30" />
           <circle id="circle3" class="cls-1" cx="754" cy="355" r="30" />
         </g>
-        <g id="组1" class="transformer">
+        <g id="组2" class="transformer">
           <circle id="circle2-2" data-name="circle2" class="cls-1" cx="902" cy="333" r="30" />
           <circle id="circle1-2" data-name="circle1" class="cls-1" cx="922" cy="355" r="30" />
           <circle id="circle3-2" data-name="circle3" class="cls-1" cx="886" cy="357" r="30" />
@@ -93,16 +103,25 @@
             "status": 2
           }]
         }],
-        svgHtml: `<svg id="互感器组" xmlns="http://www.w3.org/2000/svg" width="1890"    height="1417" viewBox="0 0 1890 1417">
-          <g id="组2" class="transformer">
-            <circle id="circle2" class="cls-1" cx="770" cy="331" r="30" />
-            <circle id="circle1" class="cls-1" cx="790" cy="353" r="30" />
-            <circle id="circle3" class="cls-1" cx="754" cy="355" r="30" />
-          </g>
+        svgHtml: `<svg id="互感器组" xmlns="http://www.w3.org/2000/svg" width="1890" height="1417" viewBox="0 0 1890 1417">
+          <defs>
+            <svg:style type="text/css">
+              .cls-1 {
+                fill: none;
+                stroke: #00a0e9;
+                stroke-width: 4px;
+              }
+            </svg:style>
+          </defs>
           <g id="组1" class="transformer">
-            <circle id="circle2-2" data-name="circle2" class="cls-1" cx="902" cy="333" r="30" />
-            <circle id="circle1-2" data-name="circle1" class="cls-1" cx="922" cy="355" r="30" />
-            <circle id="circle3-2" data-name="circle3" class="cls-1" cx="886" cy="357" r="30" />
+            <circle id="circle2" class="cls-1" cx="770" cy="331" r="30"/>
+            <circle id="circle1" class="cls-1" cx="790" cy="353" r="30"/>
+            <circle id="circle3" class="cls-1" cx="754" cy="355" r="30"/>
+          </g>
+          <g id="组2" class="transformer">
+            <circle id="circle2-2" data-name="circle2" class="cls-1" cx="902" cy="333" r="30"/>
+            <circle id="circle1-2" data-name="circle1" class="cls-1" cx="922" cy="355" r="30"/>
+            <circle id="circle3-2" data-name="circle3" class="cls-1" cx="886" cy="357" r="30"/>
           </g>
         </svg>`,
         classType: ['normal', 'warning', 'abnormal'],
@@ -117,7 +136,6 @@
       const vm = this
       this.$nextTick(() => {
         const trans = document.querySelectorAll('.transformer')
-        console.log('trans', trans)
         this.list.forEach((item, index) => {
           let datas = item.datas
           datas.forEach((item, jndex) => {
@@ -125,7 +143,7 @@
             trans[index].children[jndex].classList.add(this.classType[item['status']])
           })
         })
-  
+
         // 添加单机事件
         for (let i = 0; i < trans.length; i++) {
           trans[i].onclick = function () {
@@ -158,17 +176,14 @@
     background: #0D2C71;
   }
 
-  .cls-1 {
-    fill: none;
-    stroke: #00a0e9;
-    stroke-width: 4px;
-  }
-
+  // 使用v-html 必须使用样式穿透
   >>>svg {
     width: 100%;
     height: 100%;
+
     .transformer {
       cursor: pointer;
+
       circle {
         fill: transparent;
         /*转换成透明色*/
