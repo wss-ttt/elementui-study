@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="box" v-html="svgHtml"></div>
+    <div v-html="testHtml"></div>
   </div>
 </template>
 
@@ -113,7 +114,10 @@
         svgHtml: '',
         classType: ['normal', 'warning', 'abnormal'],
         aniType: ['normalAni', 'warningAni', 'abnormalAni'],
-        testHtml: '<div class="red">好好学习</div>'
+        testHtml: `<div class="container">
+                      <div class="left">left</div>
+                      <div class="right">right</div>
+                  </div>`
       }
     },
     computed: {},
@@ -217,6 +221,22 @@
 <style scoped lang="scss">
   >>>.red {
     color: red;
+  }
+
+  >>>.container {
+    width: 400px;
+    height: 400px;
+    border: 1px solid red;
+    display: flex;
+    >div {
+      flex: 1;
+      &.left {
+        background: #fb3;
+      }
+      &.right {
+        background: #1acd7e;
+      }
+    }
   }
 
   .box {
