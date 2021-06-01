@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
-    <div class="box">
-      <svg id="互感器组" xmlns="http://www.w3.org/2000/svg" width="1890" height="1417" viewBox="0 0 1890 1417">
+    <div class="box" v-html="svgHtml">
+      <!-- <svg id="互感器组" xmlns="http://www.w3.org/2000/svg" width="1890" height="1417" viewBox="0 0 1890 1417">
         <g id="组2" class="transformer">
           <circle id="circle2" class="cls-1" cx="770" cy="331" r="30" />
           <circle id="circle1" class="cls-1" cx="790" cy="353" r="30" />
@@ -12,7 +12,9 @@
           <circle id="circle1-2" data-name="circle1" class="cls-1" cx="922" cy="355" r="30" />
           <circle id="circle3-2" data-name="circle3" class="cls-1" cx="886" cy="357" r="30" />
         </g>
-      </svg>
+      </svg> -->
+    </div>
+    <div class="main" v-html="testHtml">
     </div>
   </div>
 </template>
@@ -92,15 +94,6 @@
           }]
         }],
         svgHtml: `<svg id="互感器组" xmlns="http://www.w3.org/2000/svg" width="1890"    height="1417" viewBox="0 0 1890 1417">
-          <defs>
-            <style>
-              .cls-1 {
-                fill: none;
-                stroke: #00a0e9;
-                stroke-width: 4px;
-              }
-            </style>
-          </defs>
           <g id="组2" class="transformer">
             <circle id="circle2" class="cls-1" cx="770" cy="331" r="30" />
             <circle id="circle1" class="cls-1" cx="790" cy="353" r="30" />
@@ -113,7 +106,8 @@
           </g>
         </svg>`,
         classType: ['normal', 'warning', 'abnormal'],
-        aniType: ['normalAni', 'warningAni', 'abnormalAni']
+        aniType: ['normalAni', 'warningAni', 'abnormalAni'],
+        testHtml: '<div class="red">好好学习</div>'
       }
     },
     computed: {},
@@ -154,6 +148,10 @@
 
 </script>
 <style scoped lang="scss">
+  >>>.red {
+    color: red;
+  }
+
   .box {
     width: 2500px;
     height: 1740px;
@@ -166,59 +164,35 @@
     stroke-width: 4px;
   }
 
-  svg {
+  >>>svg {
     width: 100%;
     height: 100%;
+    .transformer {
+      cursor: pointer;
+      circle {
+        fill: transparent;
+        /*转换成透明色*/
+        stroke-width: 4;
+        stroke: #03C1FF;
+        /* animation: shink 1s infinite ease-in-out; */
+        animation: normalAni 1s linear infinite alternate;
+      }
+    }
   }
 
-  .transformer {
-    cursor: pointer;
-  }
-
-  .transformer circle {
-    fill: transparent;
-    /*转换成透明色*/
-    stroke-width: 4;
-    stroke: #03C1FF;
-    /* animation: shink 1s infinite ease-in-out; */
-    animation: normalAni 1s linear infinite alternate;
-  }
-
-  .normal {
+  >>>.normal {
     stroke: #03C1FF !important;
     animation-name: normalAni;
   }
 
-  .warning {
+  >>>.warning {
     stroke: #00FF00 !important;
     animation-name: warningAni;
   }
 
-  .abnormal {
+  >>>.abnormal {
     stroke: #FFA500 !important;
     animation-name: abnormalAni;
-  }
-
-  @keyframes shink {
-    0% {
-      opacity: 1;
-    }
-
-    25% {
-      opacity: 0.75;
-    }
-
-    50% {
-      opacity: 0.5;
-    }
-
-    75% {
-      opacity: 0.25;
-    }
-
-    100% {
-      opacity: 0;
-    }
   }
 
   @keyframes normalAni {
