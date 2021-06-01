@@ -518,14 +518,19 @@ export default new Router({
 			component: resolve => require(['@/views/row/Index.vue'], resolve),
 		},
 		{
-			path:'/001-alert',
-			name:'001-alert',
+			path:'/源码学习/001-alert',
+			name:'源码学习-001-alert',
 			component: resolve => require(['@/views/源码学习/001-alert.vue'], resolve),
 		},
 		{
-			path:'/002-message',
-			name:'002-message',
+			path:'/源码学习/002-message',
+			name:'源码学习-002-message',
 			component: resolve => require(['@/views/源码学习/002-message.vue'], resolve),
+		},
+		{
+			path:'/源码学习/003-button',
+			name:'源码学习-003-button',
+			component: resolve => require(['@/views/源码学习/003-button.vue'], resolve),
 		},
 		{
 			path:'/dynamic-table',      // 动态表格  列的位置是固定的
@@ -873,6 +878,11 @@ export default new Router({
 			path: '/test9/loading2',
 			name: 'test9-loading2',
 			component: resolve => require(['@/views/test9/loading2.vue'], resolve)
+		},
+		{
+			path: '/test9/svg',
+			name: 'test9-svg',
+			component: resolve => require(['@/views/test9/svg.vue'], resolve)
 		},
 		{
 			path: '/swiper/index',
