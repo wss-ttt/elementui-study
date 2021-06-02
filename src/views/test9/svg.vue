@@ -240,15 +240,14 @@
   }
 
   .box {
-    width: 2500px;
+    width: 2000px;
     height: 1740px;
     background: #0D2C71;
   }
 
   // 使用v-html 必须使用样式穿透
   >>>svg {
-    width: 100%;
-    height: 100%;
+    border: 10px solid red;
 
     #transformer {
       >g {
