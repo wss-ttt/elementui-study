@@ -885,6 +885,11 @@ export default new Router({
 			component: resolve => require(['@/views/test9/svg.vue'], resolve)
 		},
 		{
+			path: '/test9/svg2',
+			name: 'test9-svg2',
+			component: resolve => require(['@/views/test9/svg2.vue'], resolve)
+		},
+		{
 			path: '/swiper/index',
 			name: 'swiper-index',
 			component: resolve => require(['@/views/swiper/index.vue'], resolve)
