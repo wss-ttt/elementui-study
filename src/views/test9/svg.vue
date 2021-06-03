@@ -247,6 +247,8 @@
 
   // 使用v-html 必须使用样式穿透
   >>>svg {
+    width: 100%;
+    height: 100%;
     border: 10px solid red;
 
     #transformer {
