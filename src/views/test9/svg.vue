@@ -113,7 +113,6 @@
         }],
         svgHtml: '',
         classType: ['normal', 'warning', 'abnormal'],
-        aniType: ['normalAni', 'warningAni', 'abnormalAni'],
         testHtml: `<div class="container">
                       <div class="left">left</div>
                       <div class="right">right</div>
