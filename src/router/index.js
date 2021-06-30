@@ -518,19 +518,29 @@ export default new Router({
 			component: resolve => require(['@/views/row/Index.vue'], resolve),
 		},
 		{
-			path:'/源码学习/001-alert',
-			name:'源码学习-001-alert',
-			component: resolve => require(['@/views/源码学习/001-alert.vue'], resolve),
+			path:'/code-study/001-alert',
+			name:'code-study-001-alert',
+			component: resolve => require(['@/views/code-study/001-alert.vue'], resolve),
 		},
 		{
-			path:'/源码学习/002-message',
-			name:'源码学习-002-message',
-			component: resolve => require(['@/views/源码学习/002-message.vue'], resolve),
+			path:'/code-study/002-message',
+			name:'code-study-002-message',
+			component: resolve => require(['@/views/code-study/002-message.vue'], resolve),
 		},
 		{
-			path:'/源码学习/003-button',
-			name:'源码学习-003-button',
-			component: resolve => require(['@/views/源码学习/003-button.vue'], resolve),
+			path:'/code-study/003-button',
+			name:'code-study-003-button',
+			component: resolve => require(['@/views/code-study/003-button.vue'], resolve),
+		},
+		{
+			path:'/code-study/004-col',
+			name: 'code-study-004-col',
+			component: resolve => require(['@/views/code-study/004-col.vue'], resolve),
+		},
+		{
+			path:'/code-study/005-row',
+			name: 'code-study-005-row',
+			component: resolve => require(['@/views/code-study/005-row.vue'], resolve),
 		},
 		{
 			path:'/dynamic-table',      // 动态表格  列的位置是固定的
