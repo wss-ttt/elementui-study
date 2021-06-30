@@ -36,44 +36,44 @@ export default {
   margin: 100px auto;
 }
 
-.row {
+.wt-row {
   position: relative;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 // 该样式可以不需要
-.row::before {
+.wt-row::before {
   content: '';
   display: table;
 }
 
 // 用于清除浮动的
-.row::after {
+.wt-row::after {
   content: '';
   display: table;
   clear: both;
 }
 
 // 对齐方式
-.row--flex {
+.wt-row--flex {
   display: flex;
 }
 
 // 居中
-.row--flex.is-justify-center {
+.wt-row--flex.is-justify-center {
   justify-content: center;
 }
 // 两端对齐
-.el-row--flex.is-justify-space-between {
+.wt-row--flex.is-justify-space-between {
   justify-content: space-between;
 }
 // 靠左对齐
-.el-row--flex.is-justify-end {
+.wt-row--flex.is-justify-end {
   justify-content: flex-end;
 }
 
 // 平均分配
-.el-row--flex.is-justify-space-around {
+.wt-row--flex.is-justify-space-around {
   justify-content: space-around;
 }
 // 属性选择器: 选择包含 'wt-col-'的元素
