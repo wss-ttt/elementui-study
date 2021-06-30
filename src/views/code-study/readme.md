@@ -23,5 +23,6 @@
   * ./packages>theme-chalk>src: 单个组件的scss格式文件
   * ./packages>theme-chalk>lib: 单个组件的编译之后的css格式文件
   * ./packages>theme-chalk>common>var.scss: 存放的是sass全局变量
+     * 其他的scss文件通过@import "common/var";该语句进行引用全局变量
   * ./packages>theme-chalk>fonts: 字体库
   * ./packages>theme-chalk>mixins: sass的mixins文件
