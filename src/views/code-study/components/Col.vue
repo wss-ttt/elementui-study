@@ -23,13 +23,16 @@ export default {
 
   computed: {
     gutter() {
-      let parent = this.$parent
+			let parent = this.$parent
       while (parent && parent.$options.componentName !== 'ElRow') {
         parent = parent.$parent
       }
       return parent ? parent.gutter : 0
     }
-  },
+	},
+	mounted() {
+		console.log('mounted', this['$props'])
+	},
   render(h) {
     let classList = []
     let style = {}
@@ -40,6 +43,9 @@ export default {
     }
 
     ;['span', 'offset', 'pull', 'push'].forEach(prop => {
+			// console.log('prop', prop)
+			// console.log('this', this)
+			// console.log('this[prop]', this[prop])
       if (this[prop] || this[prop] === 0) {
         classList.push(
           prop !== 'span'
@@ -47,7 +53,7 @@ export default {
             : `wt-col-${this[prop]}`
         )
       }
-    })
+		})
     ;['xs', 'sm', 'md', 'lg', 'xl'].forEach(size => {
       if (typeof this[size] === 'number') {
         classList.push(`wt-col-${size}-${this[size]}`)
