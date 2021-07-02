@@ -14,12 +14,6 @@
     <my-button type="warning">我的按钮</my-button>
     <my-button type="danger" disabled>我的按钮</my-button>
     <hr />
-    <div class="box rl">
-      <div></div>
-    </div>
-    <div class="box bml">
-      <div></div>
-    </div>
   </div>
 </template>
 
@@ -55,8 +49,6 @@
 
 </script>
 <style scoped lang="scss">
-@import 'rl.scss';
-@import 'bml.scss';
 .box {
   width: 200px;
   height: 200px;
