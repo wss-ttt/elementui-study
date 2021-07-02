@@ -14,7 +14,7 @@ export default {
   props: {
 		// 提供一个value的props, 是为了在父组件中使用 v-madel
 		value: {
-			type: Boolean,
+			type: [Boolean, String, Number],
 			default: false
 		},
     width: {
