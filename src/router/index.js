@@ -548,6 +548,11 @@ export default new Router({
 			component: resolve => require(['@/views/code-study/006-switch.vue'], resolve),
 		},
 		{
+			path:'/code-study/007-rate',
+			name: 'code-study-007-rate',
+			component: resolve => require(['@/views/code-study/007-rate.vue'], resolve),
+		},
+		{
 			path:'/dynamic-table',      // 动态表格  列的位置是固定的
 			name:'dynamic-table',
 			component: resolve => require(['@/views/table/dynamic-table'], resolve),
